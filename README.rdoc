@@ -26,3 +26,12 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+#Deadhouse Diner
+#Goosebumps
+#R.L. Diner
+
+# Say Cheese and Die - Grilled Cheese
+
+# Bring 3 flashlights to demo night
