@@ -10,6 +10,7 @@ class CartItemsController < ApplicationController
   end
 
   def index
-
+    @items = @cart.items
+    
   end
 end
