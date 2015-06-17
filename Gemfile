@@ -44,6 +44,7 @@ group :development, :test do
   gem 'launchy'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'pry'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
