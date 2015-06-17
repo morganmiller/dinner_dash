@@ -4,7 +4,7 @@
     <%= form_tag cart_path, method: :post do %>
       <% fields_for :item_id do %>
         <% @items.each do |item, quantity| %>
-          <li>
+          <li id="cart-item">
             <%= item.title %><br>
             <%= item.description %><br>
             Price: <%= number_to_currency item.price %><br>
