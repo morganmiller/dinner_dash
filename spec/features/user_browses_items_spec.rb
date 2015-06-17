@@ -27,7 +27,7 @@ feature 'browse items view' do
     within("#items li:first-child") do
       click_on "View item"
     end
-    # byebug
+
     expect(current_path).to eq(item_path(@item))
 
     expect(page).to have_content "Eat Cheese and Die"
