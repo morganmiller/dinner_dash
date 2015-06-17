@@ -12,7 +12,12 @@
     <%= csrf_meta_tags %>
   </head>
 
+  <header>
+    <%= render 'layouts/nav' %>
+  </header>
+  
   <body>
+    
     <%= flash[:notice] %>
       <%= yield %>
 
