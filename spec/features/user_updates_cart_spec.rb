@@ -23,10 +23,10 @@ feature 'update cart' do
   scenario 'change single item quantity' do
     fill_in "Quantity:", with: 2
     click_on "Update cart"
-
+    
     expect(current_path).to eq(cart_path)
     
-    expect(page).to have_content "Your cart has been updated"
+    expect(page).to have_content "Your cart has been updated! You now have 2 items in your cart."
   end
   
 end

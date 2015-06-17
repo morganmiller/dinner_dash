@@ -2,16 +2,14 @@
 
 <ul>
 <%= form_tag cart_path, method: :post do %>
-  <% @items.each do |item, quantity| %>
-    <li>
-      <%= item.title %>, <%= item.description %>, Price: <%= number_to_currency item.price %>,
-        <%= label_tag("#{item.id}", "Quantity:") %> <%= text_field_tag "#{item.id}", quantity %>
-      <% end %>
-    </li>
-<%= submit_tag 'Update cart' %>
+  <% fields_for :item_id do %>
+    <% @items.each do |item, quantity| %>
+      <li>
+        <%= item.title %>, <%= item.description %>, Price: <%= number_to_currency item.price %>,
+          <%= label_tag("new_cart[#{item.id}]", "Quantity:") %> <%= text_field_tag "new_cart[#{item.id}]", quantity %>
+        <% end %>
+      </li>
+  <%= submit_tag 'Update cart' %>
+  <% end %>
 <% end %>
 </ul>
-
-<%#= form_tag '/cart', method: :post do %>
-  <%#= submit_tag 'Update' %>
-<%# end %>
