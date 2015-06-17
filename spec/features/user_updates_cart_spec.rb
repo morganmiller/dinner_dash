@@ -27,13 +27,14 @@ feature 'update cart' do
     visit item_path(@item2)
     click_on "Add to cart"
 
-    fill_in "Quantity:", :match => :first, with: 4
+    items = page.all("li#cart-item")
+    items[0].fill_in('Quantity:', with: 2)
+    items[1].fill_in('Quantity:', with: 4)
 
     click_on "Update cart"
 
     expect(current_path).to eq(cart_path)
 
-    expect(page).to have_content "Your cart has been updated! You now have 41 items in your cart."
+    expect(page).to have_content "Your cart has been updated! You now have 6 items in your cart."
   end
-
 end

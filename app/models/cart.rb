@@ -15,7 +15,7 @@ class Cart
   end
 
   def items_total
-    contents.values(&:to_i).sum
+    contents.values.map(&:to_i).sum
   end
 
   def delete_item(item_id)
