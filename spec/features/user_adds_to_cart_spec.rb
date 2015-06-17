@@ -19,7 +19,7 @@ feature 'add to cart' do
     expect(current_path).to eq(item_path(@item))
 
     click_on "Add to cart"
-    expect(current_path).to eq(cart_items_path)
+    expect(current_path).to eq(cart_path)
     expect(page).to have_content "Your Cart"
     expect(page).to have_content "Eat Cheese and Die"
     expect(page).to have_content "The spookiest grilled cheese."
@@ -40,7 +40,7 @@ feature 'add to cart' do
     end
     click_on "Add to cart"
     
-    expect(current_path).to eq(cart_items_path)
+    expect(current_path).to eq(cart_path)
     expect(page).to have_content "Your Cart"
     expect(page).to have_content "Eat Cheese and Die"
     expect(page).to have_content "The spookiest grilled cheese."

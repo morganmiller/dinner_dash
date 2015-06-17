@@ -1,4 +1,5 @@
 class CartItemsController < ApplicationController
+  
   def create
     item = Item.find(params[:item_id])
 
@@ -6,11 +7,7 @@ class CartItemsController < ApplicationController
 
     session[:cart] = @cart.contents
 
-    redirect_to cart_items_path
+    redirect_to cart_path
   end
 
-  def index
-    @items = @cart.items
-    
-  end
 end

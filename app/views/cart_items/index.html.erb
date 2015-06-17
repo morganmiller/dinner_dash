@@ -1,9 +1,0 @@
-<h1>Your Cart</h1>
-
-<ul>
-  <% @items.each do |item, quantity| %>
-    <li>
-      <%= item.title %>, <%= item.description %>, quantity: <%= quantity %>, price: <%= number_to_currency item.price %>
-    </li>
-  <% end %>
-</ul>
