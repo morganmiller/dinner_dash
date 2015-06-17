@@ -5,9 +5,9 @@ class CartController < ApplicationController
   end
   
   def create
-    total_items = update_cart_params.values(&:to_i).sum
     session[:cart] = update_cart_params
-    flash[:notice] = "Your cart has been updated! You now have #{total_items} items in your cart."
+    cart = Cart.new(session[:cart])
+    flash[:notice] = "Your cart has been updated! You now have #{cart.items_total} items in your cart."
     redirect_to cart_path
   end
   

@@ -14,5 +14,9 @@ class Cart
     contents.map { |id, quantity| [Item.find(id), quantity] }.to_h
   end
   
+  def items_total
+    contents.values(&:to_i).sum
+  end
+  
   
 end
