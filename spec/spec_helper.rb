@@ -1,5 +1,4 @@
 RSpec.configure do |config|
-
   config.after(:each) do
     reset_session!
   end
@@ -24,6 +23,7 @@ RSpec.configure do |config|
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+    config.backtrace_exclusion_patterns << %r{/gems/}
   end
 
   config.before(:suite) do

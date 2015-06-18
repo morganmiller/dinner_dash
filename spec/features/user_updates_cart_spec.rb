@@ -7,8 +7,8 @@ feature 'update cart' do
                         description: "The spookiest grilled cheese.",
                         price: 50.65)
     @item2 = Item.create(title: "It Came From Beneath the Sink",
-                       description: "You don't want to know.",
-                       price: 200.99)
+                         description: "You don't want to know.",
+                         price: 200.99)
 
     visit item_path(@item)
     click_on "Add to cart"
