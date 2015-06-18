@@ -36,6 +36,5 @@ RSpec.configure do |config|
       example.run
     end
   end
-
   # config.use_transactional_fixtures = false
 end
