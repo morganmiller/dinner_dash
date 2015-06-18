@@ -29,4 +29,12 @@ feature 'User clicks checkout' do
     expect(page).to have_content "You have purchased 1 spooky item"
     expect(page).to have_content "Your Orders"
   end
+  
+  scenario 'and cannot checkout if unauthorized' do
+    click_on "Checkout"
+    
+    expect(current_path).to eq(login_path)
+    expect(page).to have_content "You must log in or create an account to checkout!"
+    expect(page).to have_content "Login"
+  end
 end
