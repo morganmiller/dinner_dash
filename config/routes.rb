@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :categories, only: [:show]
 
+  namespace :user do
+    resources :orders, only: [:create, :index]
+  end
+
   get '/cart', to: 'cart#show'
   post '/cart', to: 'cart#create'
   delete '/cart_items', to: 'cart_items#destroy'

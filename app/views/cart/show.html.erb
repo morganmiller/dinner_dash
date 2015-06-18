@@ -8,12 +8,13 @@
           <%= item.title %><br>
           <%= item.description %><br>
           Price: <%= number_to_currency item.price %><br>
-            <%= label_tag("new_cart[#{item.id}]", "Quantity:") %>
-            <%= text_field_tag "new_cart[#{item.id}]", quantity %><br>
+          <%= label_tag("new_cart[#{item.id}]", "Quantity:") %>
+          <%= text_field_tag "new_cart[#{item.id}]", quantity %><br>
           <%= link_to "Delete", cart_items_path(item_id: item.id), method: :delete %>
       <% end %>
-        </li>
-    <%= submit_tag 'Update cart' %>
+      </li>
+      <%= submit_tag 'Update cart' %>
+      <%= button_to 'Checkout', user_orders_path %>
     <% end %>
   <% end %>
 </ul>
