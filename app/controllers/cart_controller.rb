@@ -1,5 +1,4 @@
 class CartController < ApplicationController
-
   def show
     @items = @cart.items
   end

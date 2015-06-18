@@ -1,12 +1,14 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  include ApplicationHelper
+
   protect_from_forgery with: :exception
+  
   before_action :load_cart
+
+
+  helper_method :current_user
 
   def load_cart
     @cart = Cart.new(session[:cart])
   end
 end
-
-
