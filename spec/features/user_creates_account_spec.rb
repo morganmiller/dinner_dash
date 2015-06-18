@@ -62,11 +62,43 @@ feature 'user creates account' do
     fill_in "Full name", with: @user2.full_name
     fill_in "Display name", with: @user2.display_name
     fill_in "Email", with: @user2.email
-    fill_in "Password", with: "Soopur"
+    fill_in "Password", with: "Seekrit"
 
     click_button "Sign up"
 
     expect(current_path).to eq(new_user_path)
-    expect(page).to have_content ""
+    expect(page).to have_content "Full name can't be blank"
+  end
+
+  scenario "user display name can't be too short" do
+    click_on "Sign up"
+
+    expect(current_path).to eq(new_user_path)
+
+    fill_in "Full name", with: @user1.full_name
+    fill_in "Display name", with: "a"
+    fill_in "Email", with: @user1.email
+    fill_in "Password", with: "Seekrit"
+
+    click_button "Sign up"
+
+    expect(current_path).to eq(new_user_path)
+    expect(page).to have_content "Display name is too short"
+  end
+
+  scenario "user display name can't be too long" do
+    click_on "Sign up"
+
+    expect(current_path).to eq(new_user_path)
+
+    fill_in "Full name", with: @user1.full_name
+    fill_in "Display name", with: "abcdefghijklmnopqrstuvwxyzabcdefghijk"
+    fill_in "Email", with: @user1.email
+    fill_in "Password", with: "Seekrit"
+
+    click_button "Sign up"
+
+    expect(current_path).to eq(new_user_path)
+    expect(page).to have_content "Display name is too long"
   end
 end
