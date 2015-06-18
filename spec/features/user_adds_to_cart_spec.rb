@@ -25,21 +25,21 @@ feature 'add to cart' do
     expect(page).to have_content "The spookiest grilled cheese."
     expect(page).to have_content "$50.65"
   end
-  
-  
+
+
   scenario 'add two items to cart' do
     within("#items li:first-child") do
       click_on "View item"
     end
     click_on "Add to cart"
-    
+
     visit root_path
 
     within("#items li:nth-child(2)") do
       click_on "View item"
     end
     click_on "Add to cart"
-    
+
     expect(current_path).to eq(cart_path)
     expect(page).to have_content "Your Cart"
     expect(page).to have_content "Eat Cheese and Die"
