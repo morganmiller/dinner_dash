@@ -5,5 +5,6 @@
     <%= item.title %><br>
     <%= item.description %><br>
     Price: <%= number_to_currency item.price %><br>
-  </li>
+    <%= link_to "View item", item %><br>
+  </li><br>
 <% end %>
