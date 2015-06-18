@@ -25,7 +25,6 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
     config.backtrace_exclusion_patterns << %r{/gems/}
   end
-   
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -37,6 +36,5 @@ RSpec.configure do |config|
       example.run
     end
   end
-
   # config.use_transactional_fixtures = false
 end

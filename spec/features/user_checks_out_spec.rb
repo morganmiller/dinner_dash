@@ -3,13 +3,13 @@ require 'rails_helper'
 feature 'User clicks checkout' do
   before(:each) do
     @item = Item.create(title: "Eat Cheese and Die",
-      description: "The spookiest grilled cheese.",
-      price: 50.65)
+                        description: "The spookiest grilled cheese.",
+                        price: 50.65)
 
     @user = User.create(email: "what@whatwhat.com",
-      password: "Seekrit",
-      full_name: "Sir Whats",
-      display_name: "mrwhatsalot")
+                        password: "Seekrit",
+                        full_name: "Sir Whats",
+                        display_name: "mrwhatsalot")
 
     visit root_path
 
