@@ -21,11 +21,11 @@ feature 'User clicks checkout' do
   end
 
   scenario 'and can checkout if authorized' do
-    allow(controller).to receive(:current_user) { @user }
+    allow_any_instance_of(ApplicationController).to receive(:current_user) { @user }
 
     click_on "Checkout"
 
-    expect(current_path).to eq(user_orders_path)
+    expect(current_path).to eq(orders_path)
     expect(page).to have_content "You have purchased 1 spooky item"
     expect(page).to have_content "Your Orders"
   end
