@@ -50,4 +50,8 @@ RSpec.describe Item, type: :model do
     item.categories = []
     expect(item).to_not be_valid
   end
+  
+  it "is not retired by default" do
+    expect(item.retired?).to be_falsey
+  end
 end
