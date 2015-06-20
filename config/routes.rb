@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :orders, only: [:create, :index]
 
+  namespace :admin do
+    resources :items
+    resources :orders
+  end
+
   get '/cart', to: 'cart#show'
   post '/cart', to: 'cart#create'
   delete '/cart_items', to: 'cart_items#destroy'
