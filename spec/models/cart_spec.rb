@@ -1,14 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
-  
+  let(:category) { Category.create!(name: "Gross")}
+
   before(:each) do
-    @item1 = Item.create(title: "Eat Cheese and Die",
-                         description: "The spookiest grilled cheese.",
-                         price: 50.65)
-    @item2 = Item.create(title: "It Came From Beneath the Sink",
-                         description: "You don't want to know.",
-                         price: 200.99)
+    @item1 = Item.create!(title: "Eat Cheese and Die",
+                          description: "The spookiest grilled cheese.",
+                          price: 50.65,
+                          categories: [category])
+    @item2 =  Item.create!(title: "It Came From Beneath the Sink",
+                           description: "You don't want to know.",
+                           price: 200.99,
+                           categories: [category])
     @initial_contents = {"1" => "3", "2" => "1", "3" => "5"}
   end
   
