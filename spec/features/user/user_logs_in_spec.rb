@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User Logs In' do
+feature 'User logs in' do
   before(:each) do
     @user = User.create(email: "what@whatwhat.com",
       password: "Seekrit",
