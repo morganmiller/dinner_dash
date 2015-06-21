@@ -7,7 +7,12 @@ class Item < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, presence: true, numericality: { greater_than: 0 }
-  validates :categories, presence: true
+  validate :has_at_least_one_category
 
+  def has_at_least_one_category
+    if categories.empty?
+      errors.add(:items, "needs at least one category!")
+    end
+  end
   # scope :category, -> (category) { where category: category }
 end
