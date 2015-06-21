@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  let(:user) { User.create!(full_name: "R.L. Stine",
+  let(:user) { 
+               User.create!(full_name: "R.L. Stine",
                             display_name: "Stiner",
                             email: "goosebumps@rscary.com",
-                            password: "aaah")}
+                            password: "aaah")
+  }
   
   it "is valid" do
     expect(user).to be_valid

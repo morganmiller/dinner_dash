@@ -1,23 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-  let(:user) { User.create!(full_name: "R.L. Stine",
+  let(:user) { 
+               User.create!(full_name: "R.L. Stine",
                             display_name: "Stiner",
                             email: "goosebumps@rscary.com",
-                            password: "aaah")}
-  let(:category) {
-    Category.create!(name: "Vampire")
-  }
-
-  let(:item) {
-    Item.create!(title: "Monster Blood",
-                 description: "A red, sticky treat.",
-                 price: 15.50,
-                 categories: [category])
+                            password: "aaah")
   }
   
-  let(:order) { Order.new(total_price: 500.00,
-                          user_id: user.id)}
+  let(:category) { Category.create!(name: "Vampire") }
+
+  let(:item) {
+               Item.create!(title: "Monster Blood",
+                            description: "A red, sticky treat.",
+                            price: 15.50,
+                            categories: [category])
+  }
+  
+  let(:order) { 
+                Order.new(total_price: 500.00,
+                          user_id: user.id)
+  }
   
   before(:each) do
     order.items << item

@@ -1,13 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe ItemCategory, type: :model do
-  let(:category) {
-    Category.create!(name: "Vampire")
-  }
+  let(:category) { Category.create!(name: "Vampire") }
 
-  let(:category2) {
-    Category.create!(name: "Ghost")
-  }
+  let(:category2) { Category.create!(name: "Ghost") }
   
   let(:item_data) {
                     {title: "Monster Blood",

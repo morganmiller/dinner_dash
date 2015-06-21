@@ -4,9 +4,16 @@ class Item < ActiveRecord::Base
   has_many :order_items
   has_many :orders, through: :order_items
   
-  validates :title, presence: true, uniqueness: true
+  validates :title, 
+            presence: true,
+            uniqueness: true
+  
   validates :description, presence: true
-  validates :price, presence: true, numericality: { greater_than: 0 }
+  
+  validates :price,
+            presence: true,
+            numericality: { greater_than: 0 }
+  
   validate :has_at_least_one_category
 
   def has_at_least_one_category

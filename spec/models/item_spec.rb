@@ -4,14 +4,14 @@ RSpec.describe Item, type: :model do
   
   let(:category) { 
                    Category.create!(name: "Vampire")
-                 }
+   }
   
   let(:item) {
                    Item.create!(title: "Monster Blood",
                                 description: "A red, sticky treat.",
                                 price: 15.50,
                                 categories: [category]) 
-             }
+   }
   
   it "is valid" do
     expect(item).to be_valid
