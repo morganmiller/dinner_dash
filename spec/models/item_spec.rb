@@ -17,6 +17,13 @@ RSpec.describe Item, type: :model do
     expect(item).to be_valid
   end
   
+  it "has valid attributes" do
+    expect(item.title).to eq("Monster Blood")
+    expect(item.description).to eq("A red, sticky treat.")
+    expect(item.price).to eq(15.50)
+    expect(item.categories.first).to eq(category)
+  end
+  
   it "is invalid without a title" do
     item.title = ""
     
