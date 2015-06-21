@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
       order.items << cart.items.keys
       order.save!
       cart.items.each do |item, quantity|
-        order.order_items.create!(item: item, quantity: quantity, line_item_price: item.price * quantity)
+        order.order_items.create!(item: item, quantity: quantity, line_item_price: item.price * quantity.to_i)
       end
       flash[:notice] = "You have purchased #{cart.items_total} spooky item(s)"
       redirect_to orders_path
