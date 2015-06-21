@@ -1,0 +1,16 @@
+<ul class="right">
+  <li class="active">
+    <%= link_to "Cart", cart_path %>
+  </li>
+  <li class="active">
+    <%= link_to "Logout", '#' %>
+  </li>
+  <li class="has-dropdown">
+    <%= link_to "Dashboard", '#' %>
+    <ul class="dropdown">
+      <li class="active"><%= link_to "Edit Items", '#' %></li>
+      <li class="active"><%= link_to "Order Dashboard", '#' %></li>
+      <li class="active"><%= link_to "Create Categories", '#' %></li>
+    </ul>
+  </li>
+</ul>

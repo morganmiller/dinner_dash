@@ -27,6 +27,6 @@ class Cart
   end
 
   def total_price
-    prices_and_quantities.flat_map { |p, q| p * q }.reduce(:+)
+    prices_and_quantities.flat_map { |p, q| p * q.to_i }.reduce(:+)
   end
 end
