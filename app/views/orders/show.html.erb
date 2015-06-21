@@ -1,0 +1,9 @@
+<h1>Your Order</h1>
+
+<% @order_items.each do |order_item| %>
+  <%= order_item.item.title %>
+  <%= order_item.quantity %>
+  <%= number_to_currency order_item.line_item_price %>
+<% end %>
+
+<h2>Total Order Cost: <%= @order.total_price %></h2>

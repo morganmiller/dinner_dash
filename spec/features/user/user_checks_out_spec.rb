@@ -27,9 +27,10 @@ feature 'User clicks checkout' do
 
     click_on "Checkout"
 
-    expect(current_path).to eq(orders_path)
+    order = @user.orders.last
+    expect(current_path).to eq(order_path(order))
     expect(page).to have_content "You have purchased 1 spooky item"
-    expect(page).to have_content "Your Orders"
+    expect(page).to have_content "Your Order"
   end
   
   scenario 'and cannot checkout if unauthorized' do

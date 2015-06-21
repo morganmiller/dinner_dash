@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
         order.order_items.create!(item: item, quantity: quantity, line_item_price: item.price * quantity.to_i)
       end
       flash[:notice] = "You have purchased #{cart.items_total} spooky item(s)"
-      redirect_to orders_path
+      redirect_to order_path(order)
     else
       flash[:errors] = "You must log in or create an account to checkout!"
       redirect_to login_path
@@ -19,5 +19,10 @@ class OrdersController < ApplicationController
   
   def index
     @orders = Order.by_user(current_user.id)
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    @order_items = @order.order_items
   end
 end
