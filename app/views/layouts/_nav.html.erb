@@ -8,17 +8,12 @@
   </ul>
 
   <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="active">
-        <%= link_to "Cart", cart_path %>
-      </li>
-      <li class="active">
-        <%= link_to "Login", login_path %>
-      </li>
-      <li class="active">
-        <%= link_to "Sign up", new_user_path %>
-      </li>
-    </ul>
+    <% if current_admin? %>
+      <%= render 'layouts/admin_nav' %>
+    <% elsif current_user %>
+      <%= render 'layouts/user_nav' %>
+    <% else %>
+      <%= render 'layouts/basic_nav' %>
+    <% end %>
   </section>
 </nav>
