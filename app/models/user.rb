@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   enum role: %w(default admin)
   
   def set_display_name
-    if display_name.empty?
+    if display_name.nil? || display_name == ""
       self.display_name = full_name
     end
   end

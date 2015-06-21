@@ -60,9 +60,4 @@ RSpec.describe Order, type: :model do
   it "has at least one item" do
     expect(order.items.count).to eq(1)
   end
-  
-  it "is invalid without items" do
-    order.items = []
-    expect(order).to_not be_valid
-  end
 end
