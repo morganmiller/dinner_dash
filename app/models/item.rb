@@ -3,6 +3,8 @@ class Item < ActiveRecord::Base
   has_many :categories, through: :item_categories
   has_many :order_items
   has_many :orders, through: :order_items
+  has_attached_file :image
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
   
   validates :title, 
             presence: true,
