@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
   has_many :order_items
   has_many :orders, through: :order_items
 
-  validate :has_category
+  validate :has_at_least_one_category
 
   validates :title,
             presence: true,
@@ -16,7 +16,7 @@ class Item < ActiveRecord::Base
             presence: true,
             numericality: { greater_than: 0 }
 
-  def has_category
+  def has_at_least_one_category
     if categories.empty?
       errors.add(:items, "needs at least one category!")
     end
