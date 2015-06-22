@@ -1,5 +1,8 @@
 <h1>Item: <%= @item.title %></h1>
-
+<!--<p><%#= image_tag @item.image.url(:thumb) %></p>-->
+<p><%= image_tag @item.image.url(:thumb) %></p>
 Description: <%= @item.description %>
 Price: <%= number_to_currency @item.price %>
-<%= button_to "Add to cart", cart_items_path(item_id: @item.id) %>
+<% unless @item.retired? %>
+  <%= button_to "Add to cart", cart_items_path(item_id: @item.id) %>
+<% end %>
