@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   resources :orders, only: [:create, :index, :show]
 
   namespace :admin do
+    root to: 'items#index'
     resources :items
     resources :orders
+    resources :categories
   end
 
   get '/cart', to: 'cart#show'

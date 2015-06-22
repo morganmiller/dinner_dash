@@ -15,9 +15,9 @@ class User < ActiveRecord::Base
             allow_blank: true
 
   validates_format_of :email, with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/
-  
+
   enum role: %w(default admin)
-  
+
   def set_display_name
     if display_name.nil? || display_name == ""
       self.display_name = full_name
