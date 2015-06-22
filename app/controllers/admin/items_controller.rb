@@ -7,7 +7,7 @@ class Admin::ItemsController < Admin::BaseController
   def create
     @item = Item.new(item_params)
     categories = params[:item][:category_ids].to_a.reject(&:empty?)
-
+    # byebug
     if @item.save
       categories.each { |category_id| @item.categories << Category.find(category_id) }
       flash[:notice] = "Item successfully created!"
@@ -30,7 +30,7 @@ class Admin::ItemsController < Admin::BaseController
 
   def show
     @item = Item.find(params[:id])
-    @categories = @item.categories
+    @categories = @item.categories.uniq
   end
 
   def update
@@ -54,6 +54,6 @@ class Admin::ItemsController < Admin::BaseController
 
   private
   def item_params
-    params.require(:item).permit(:title, :description, :price, :retired, :category_ids, :image)
+    params.require(:item).permit(:title, :description, :price, :retired, { :category_ids => [] }, :image)
   end
 end
