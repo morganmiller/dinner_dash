@@ -1,8 +1,19 @@
 <h1>Item: <%= @item.title %></h1>
+
 <!--<p><%#= image_tag @item.image.url(:thumb) %></p>-->
 <p><%= image_tag @item.image.url(:thumb) %></p>
-Description: <%= @item.description %>
-Price: <%= number_to_currency @item.price %>
+
+Description: <%= @item.description %><br>
+Price: <%= number_to_currency @item.price %><br>
+Categories:
+  <ul>
+    <% @categories.each do |c| %>
+    <li>
+      <%= c.name %>
+    </li>
+    <% end %>
+  </ul>
+
 <% unless @item.retired? %>
   <%= button_to "Add to cart", cart_items_path(item_id: @item.id) %>
 <% end %>
