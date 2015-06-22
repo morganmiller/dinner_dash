@@ -3,9 +3,15 @@ class Item < ActiveRecord::Base
   has_many :categories, through: :item_categories
   has_many :order_items
   has_many :orders, through: :order_items
-  has_attached_file :image
-  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
-
+  
+  has_attached_file :image,
+                    :default_url => "http://ak-hdl.buzzfed.com/static/enhanced/web03/2012/8/13/15/enhanced-buzz-24632-1344884422-14.jpg",
+                    :styles => { :medium => "300x300!", :thumb => "200x200!" }
+  
+  validates_attachment_content_type :image,
+                                    :content_type => ["image/jpg", "image/jpeg", "image/png"]
+  
+  
   validate :has_at_least_one_category
 
   validates :title,
