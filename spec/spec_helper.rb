@@ -1,7 +1,7 @@
 RSpec.configure do |config|
-  # config.after(:each) do
-  #   reset_session!
-  # end
+  config.after(:each) do
+    Capybara.reset_session!
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -26,15 +26,23 @@ RSpec.configure do |config|
     config.backtrace_exclusion_patterns << %r{/gems/}
   end
 
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
+  config.before(:each) do
+    DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.clean_with(:truncation)
   end
 
-  config.around(:each) do |example|
-    DatabaseCleaner.cleaning do
-      example.run
-    end
+  # config.around(:each) do |example|
+  #   DatabaseCleaner.cleaning do
+  #     example.run
+  #   end
+  # end
+  
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+  
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
   # config.use_transactional_fixtures = false
 end
