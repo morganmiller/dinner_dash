@@ -6,5 +6,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @categories = @item.categories.uniq
   end
 end

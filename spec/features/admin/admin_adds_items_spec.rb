@@ -16,21 +16,20 @@ feature 'Logged in admin' do
     click_on "Edit Items"
   end
 
-  xscenario 'can add new item' do
+  scenario 'can add new item' do
     click_on "Add new item"
     expect(current_path).to eq(new_admin_item_path)
 
     fill_in "Title", with: "Horrorland II"
     fill_in "Description", with: "Double scary"
     fill_in "Price", with: 59.95
-    #add a category selection
+    page.check "item category ids 1"
 
     click_on "Create item"
 
     expect(page).to have_content "Item successfully created!"
     expect(page).to have_content "Horrorland II"
-
-    click_on "Horrorland II"
-    expect(page).to have_content "Ghost"
+    expect(page).to have_content "Double scary"
+    expect(page).to have_content "$59.95"
   end
 end

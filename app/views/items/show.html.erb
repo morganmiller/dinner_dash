@@ -1,5 +1,13 @@
 <h1>Item: <%= @item.title %></h1>
 
-Description: <%= @item.description %>
-Price: <%= number_to_currency @item.price %>
+Description: <%= @item.description %><br>
+Price: <%= number_to_currency @item.price %><br>
+Categories:
+  <ul>
+    <% @categories.each do |c| %>
+    <li>
+      <%= c.name %>
+    </li>
+    <% end %>
+  </ul>
 <%= button_to "Add to cart", cart_items_path(item_id: @item.id) %>
