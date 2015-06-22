@@ -26,7 +26,7 @@ feature "an authenticated user's recent order" do
     click_on "Checkout"
   end
 
-  scenario 'will be displayed' do
+  xscenario 'will be displayed' do
     order = @user.orders.last
 
     expect(current_path).to eq(order_path(order))
@@ -69,7 +69,7 @@ feature "an authenticated user's recent order" do
       visit root_path
     end
 
-    scenario 'will be displayed' do
+    xscenario 'will be displayed' do
       click_on "Order History"
 
       # order1_date = @order1.created_at.strftime("%m/%d/%y")

@@ -1,0 +1,7 @@
+<h1>Item: <%= @item.title %></h1>
+
+Description: <%= @item.description %><br>
+Price: <%= number_to_currency @item.price %><br>
+Categories: <% @categories.each do |c| %>
+              <%= c.name %>
+            <% end %>

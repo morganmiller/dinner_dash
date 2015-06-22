@@ -1,0 +1,23 @@
+<%= form_for [:admin, @item] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, value: @item.title %><br>
+
+  <%= f.label :description %>
+  <%= f.text_field :description, value: @item.description %><br>
+
+  <%= f.label :price %>
+  <%= f.text_field :price, value: @item.price %><br>
+
+  <%= f.label :retired %>
+  <%= check_box_tag :retired, value = true %><br>
+
+  <%= f.label :categories %>
+  <%= f.collection_check_boxes(:category_ids, @categories.to_a, :id, :name) %><br>
+
+  <%= f.submit "Update item" %>
+  <!-- @invoice.update(params[:invoice]) -->
+  <!-- Insert check box for retired in this view, which
+       changes boolean column to true in item table.
+       put scope in to allow to put @items in item_controller
+       equal to the items scoped that have retired == false -->
+<% end %>
