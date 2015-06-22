@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def new
+    if current_user
+      flash[:notice] = "You're already logged in!"
+      redirect_to root_path
+    end
   end
 
   def create
@@ -12,5 +16,10 @@ class SessionsController < ApplicationController
       flash.now[:errors] = "Invalid Login"
       render :new
     end
+  end
+  
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path
   end
 end

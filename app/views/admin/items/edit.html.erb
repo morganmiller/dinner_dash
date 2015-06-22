@@ -14,6 +14,12 @@
   <%= f.label :categories %>
   <%= f.collection_check_boxes(:category_ids, @categories.to_a, :id, :name) %><br>
 
+  <% if @item.image.exists? %>
+    <%= image_tag @item.image.url %><br/>
+  <% end %>
+  <%= f.label :image, "Attach a New Image" %><br />
+  <%= f.file_field :image %>
+
   <%= f.submit "Update item" %>
   <!-- @invoice.update(params[:invoice]) -->
   <!-- Insert check box for retired in this view, which
