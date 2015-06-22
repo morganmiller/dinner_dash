@@ -21,6 +21,11 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    
+    if @order.user != current_user
+      render status: :forbidden, text: "You do not have access to this page."
+    end
+    
     @order_items = @order.order_items
   end
 end
