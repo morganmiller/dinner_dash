@@ -86,10 +86,17 @@ $include-html-global-classes: $include-html-classes;
 // c. Global
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
+
+
 // We use these to define default font stacks
- $font-family-sans-serif: "Creepster", Helvetica, Roboto, Arial, sans-serif;
+ $font-family-sans-serif: "Raleway", Helvetica, Roboto, Arial, sans-serif;
  //$font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
  //$font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
+
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
 
 // We use these to define default font weights
 // $font-weight-normal: normal;
@@ -1409,7 +1416,7 @@ $primary-color: #00FF00;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: $font-weight-normal;
-// $topbar-title-font-size: rem-calc(17);
+// $topbar-title-font-size: rem-calc(50);
 
 // Set the link colors and styles for top-level nav
 // $topbar-link-color: $white;
@@ -1417,7 +1424,7 @@ $primary-color: #00FF00;
 // $topbar-link-color-active: $white;
 // $topbar-link-color-active-hover: $white;
 // $topbar-link-weight: $font-weight-normal;
-// $topbar-link-font-size: rem-calc(13);
+// $topbar-link-font-size: rem-calc(50);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
 // $topbar-link-bg-hover: $jet;
@@ -1486,3 +1493,29 @@ $primary-color: #00FF00;
 // $include-legacy-visibility-classes: true;
 
 @import 'foundation';
+
+
+body {
+  background-image:asset_url("dark_360.jpg");
+  background-size:cover;
+  background-color:red;
+}
+
+
+
+.top-bar {
+  background-color: black;
+}
+
+
+.main-title {
+  min-height: 600px;
+  text-align: center;
+  h1{
+    color: #FFF;
+    padding-top: 290px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+
