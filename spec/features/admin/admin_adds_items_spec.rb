@@ -23,6 +23,8 @@ feature 'Logged in admin' do
     fill_in "Title", with: "Horrorland II"
     fill_in "Description", with: "Double scary"
     fill_in "Price", with: 59.95
+    #boxes do not appear when unchecked.
+
     # save_and_open_page
     # page.check("retired")
 

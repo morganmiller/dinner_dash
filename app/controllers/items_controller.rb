@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @categories = Category.all
-    @items = Item.all
+    @items = Item.not_retired
   end
 
   def show

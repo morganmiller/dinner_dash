@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Logged in admin' do
-  let(:category) { Category.create!(name: "Gross")}
+  let(:category) { Category.create!(name: "Monster")}
 
   before(:each) do
     admin = User.create(email: "admin@example.com",
@@ -31,7 +31,7 @@ feature 'Logged in admin' do
     expect(page).to have_content "It Came From Beneath the Sink"
   end
 
-  xscenario 'can view item details' do
+  scenario 'can view item details' do
     within("#admin-items li:first-child") do
       click_on "Modify item"
     end
@@ -39,7 +39,7 @@ feature 'Logged in admin' do
     expect(current_path).to eq(edit_admin_item_path(@item))
   end
 
-  xscenario 'can modify item details' do
+  scenario 'can modify item details' do
     within("#admin-items li:first-child") do
       click_on "Modify item"
     end
@@ -47,23 +47,27 @@ feature 'Logged in admin' do
     fill_in "Price", with: 67.95
     click_on "Update item"
 
-    expect(current_path).to eq(item_path(@item))
+    expect(current_path).to eq(admin_item_path(@item))
 
-    expect(page).to have_content "Item updated successfully!"
+    expect(page).to have_content "Item was successfully updated!"
     expect(page).to have_content "$67.95"
     expect(page).to_not have_content "$50.65"
   end
 
-  xscenario 'can modify retired status' do
+  scenario 'can modify retired status' do
     within("#admin-items li:first-child") do
       click_on "Modify item"
     end
+    save_and_open_page
 
-    check "retired_box"
-    click_on "Update item"
+    click_on "Retire item"
+
+    expect(page).to have_content "Item retired successfully!"
 
     visit items_path
 
     expect(page).to_not have_content "Eat Cheese and Die"
+    expect(page).to_not have_content "The spookiest grilled cheese."
+    expect(page).to_not have_content "$50.65"
   end
 end
