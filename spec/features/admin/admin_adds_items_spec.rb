@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Logged in admin' do
-  let(:category) { Category.create!(name: "Gross")}
+  let(:category) { Category.create!(name: "Monster")}
 
   before(:each) do
     admin = User.create(email: "admin@example.com",
@@ -23,14 +23,17 @@ feature 'Logged in admin' do
     fill_in "Title", with: "Horrorland II"
     fill_in "Description", with: "Double scary"
     fill_in "Price", with: 59.95
-    #boxes do not appear when unchecked.
+
+    within('#category-items') do
+      find("input[type='checkbox'][value='#{category.id}']").set(true)
+    end
+
+    # within("#category-items li:first-child") do
+    #   page.check("monster")
+    # end
 
     # save_and_open_page
     # page.check("retired")
-
-    within("#category-checkboxes li:first-child") do
-      page.check("item[category_ids]['1']")
-    end
 
     # //*[@id="item_category_ids_1"]
 
