@@ -13,20 +13,20 @@ feature 'when an item is retired' do
                      password: "Seekrit",
                      full_name: "Sir Whats",
                      display_name: "mrwhatsalot")
-    
+
     allow_any_instance_of(ApplicationController).to receive(:current_user) { @user }
   end
-  
+
   scenario 'user can still visit item page' do
     visit item_path(@item)
-    
+
     expect(page).to have_content "Eat Cheese and Die"
     expect(page).to have_content "The spookiest grilled cheese."
   end
 
   scenario 'a user cannot add item to cart' do
     visit item_path(@item)
-    
+
     expect(page).to_not have_button "Add to cart"
   end
 end

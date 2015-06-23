@@ -58,7 +58,6 @@ feature 'Logged in admin' do
     within("#admin-items li:first-child") do
       click_on "Modify item"
     end
-    save_and_open_page
 
     click_on "Retire item"
 

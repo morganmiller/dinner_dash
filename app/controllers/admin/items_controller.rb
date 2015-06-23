@@ -19,7 +19,6 @@ class Admin::ItemsController < Admin::BaseController
 
   def index
     @items = Item.all
-    #put in scoped method
   end
 
   def edit
