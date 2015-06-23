@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 feature 'Logged in admin' do
-  let(:category) { Category.create!(name: "Monster")}
-
   before(:each) do
     admin = User.create(email: "admin@example.com",
                          password: "password",
@@ -16,7 +14,8 @@ feature 'Logged in admin' do
     click_on "Edit Items"
   end
 
-  xscenario 'can add new item' do
+  scenario 'can add new item' do
+    category = Category.create!(name: "Monster")
     click_on "Add new item"
     expect(current_path).to eq(new_admin_item_path)
 
@@ -25,19 +24,8 @@ feature 'Logged in admin' do
     fill_in "Price", with: 59.95
 
     within('#category-items') do
-      find("input[type='checkbox'][value='#{category.id}']").set(true)
+      find("#item_category_ids_[value='#{category.id}']").set(true)
     end
-
-    # within("#category-items li:first-child") do
-    #   page.check("monster")
-    # end
-
-    # save_and_open_page
-    # page.check("retired")
-
-    # //*[@id="item_category_ids_1"]
-
-    # find(:css, "#item_category_ids_1").set(true)
 
     click_on "Create item"
 
