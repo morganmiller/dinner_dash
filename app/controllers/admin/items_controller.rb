@@ -49,6 +49,8 @@ class Admin::ItemsController < Admin::BaseController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
+    @item.categories.destroy_all
+    flash[:notice] = "Item deleted successfully!"
     redirect_to admin_items_path
   end
 

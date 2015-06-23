@@ -25,7 +25,7 @@ feature 'Logged in admin' do
     click_on "Edit Items"
   end
 
-  xscenario 'can view item index' do
+  scenario 'can view item index' do
     expect(page).to have_content "All Items"
     expect(page).to have_content "Eat Cheese and Die"
     expect(page).to have_content "It Came From Beneath the Sink"
