@@ -24,6 +24,8 @@ class Item < ActiveRecord::Base
             presence: true,
             numericality: { greater_than: 0 }
 
+  scope :not_retired, -> { where(retired: false) } 
+
   def has_at_least_one_category
     if categories.empty?
       errors.add(:items, "needs at least one category!")

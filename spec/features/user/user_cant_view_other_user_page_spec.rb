@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'user goes to other user page' do
   let(:category) { Category.create!(name: "Gross")}
-  
+
   before(:each) do
     @user1 = User.create(email: "what@whatwhat.com",
                          password: "Seekrit",
@@ -34,11 +34,11 @@ feature 'user goes to other user page' do
 
   scenario 'and returns error' do
     allow_any_instance_of(ApplicationController).to receive(:current_user) { @user1 }
-    
+
     visit order_path(@order1)
-    save_and_open_page
+    # save_and_open_page
     expect(page.status_code).to eq(403)
   end
-  
-  
+
+
 end

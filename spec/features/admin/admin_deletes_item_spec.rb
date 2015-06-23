@@ -24,19 +24,4 @@ feature 'Logged in admin' do
     visit root_path
     click_on "Edit Items"
   end
-
-  scenario 'can delete an item' do
-    within("#admin-items li:first-child") do
-      click_on "Modify item"
-    end
-
-    click_on "Delete item"
-
-    expect(current_path).to eq(admin_items_path)
-
-    expect(page).to have_content "Item deleted successfully!"
-    expect(page).to_not have_content "Eat Cheese and Die"
-    expect(page).to_not have_content "The spookiest grilled cheese."
-    expect(page).to_not have_content "$50.65"
-  end
 end
