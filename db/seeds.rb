@@ -25,8 +25,8 @@ class Seed
   end
 
   def create_items
-    items.each do |title, description, price, categories|
-      Item.create(title: title, description: description, price: price, categories: categories)
+    items.each do |title, description, price, categories, image|
+      Item.create(title: title, description: description, price: price, categories: categories, image: image)
     end
     puts "Items: #{Item.all.map(&:title).join(", ")} created."
   end
@@ -70,26 +70,26 @@ class Seed
 
   def items
     [
-      ["Eat Cheese & Die", "The ooziest grilled cheese", 50.00, [Category.find(1)]],
-      ["Welcome to Dead House",  "Spooky Spooky Spooky", 50.00, [Category.find(1), Category.find(2)]],
-      ["Monster Blood", "Spooky Spooky Spooky", 50.00, [Category.find(1)]],
-      # ["Let's Get Invisible", "Spooky Spooky Spooky", 50.00],
-      # ["The Ghost Next Door", "Spooky Spooky Spooky", 50.00],
-      # ["The Haunted Mask", "Spooky Spooky Spooky", 50.00],
-      # ["Deep Trouble", "Spooky Spooky Spooky", 50.00],
-      # ["Go Eat Worms", "Spooky Spooky Spooky", 50.00],
-      # ["Ghost Beach", "Spooky Spooky Spooky", 50.00],
-      # ["Attack of the Mutant", "Spooky Spooky Spooky", 50.00],
-      # ["The Barking Ghost", "Spooky Spooky Spooky", 50.00],
-      # ["Tick Tock You're Dead", "Spooky Spooky Spooky", 50.00],
-      # ["Bad Hare Day", "Spooky Spooky Spooky", 50.00],
-      # ["The Coo Coo Cloock of Doom", "Spooky Spooky Spooky", 50.00],
-      # ["My Hairiest Adventure", "Spooky Spooky Spooky", 50.00],
-      # ["The Return of the Mummy", "Spooky Spooky Spooky", 50.00],
-      # ["Why I am Afraid of Bees", "Spooky Spooky Spooky", 50.00],
-      # ["You Can't Scare Me", "Spooky Spooky Spooky", 50.00],
-      # ["The Girl Who Cried Monster", "Spooky Spooky Spooky", 50.00],
-      # ["Stay Out Of the Basement", "Spooky Spooky Spooky", 50.00],
+      ["Eat Cheese & Die", "The ooziest grilled cheese", 50.00, [Category.find(1)], "http://ak-hdl.buzzfed.com/static/enhanced/web03/2012/8/13/15/enhanced-buzz-24632-1344884422-14.jpg"],
+      ["Welcome to Dead House",  "That ain't gingerbread, it's Shaun White.", 50.00, [Category.find(1), Category.find(2)], "http://cache.boston.com/bonzai-fba/Original_Photo/2010/10/29/house2__1288371510_5663.jpg"],
+      ["Monster Blood Martini", "A sticky treat", 50.00, [Category.find(1)], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["Let's Get Invisible", "It has 0 calories.", 50.00, [Category.find(4)], "http://i.imgur.com/yHAHhLt.png"],
+      ["The Ghost Next Door", "Like eating Patrick Swayze", 50.00, [Category.find(4)], "http://i.imgur.com/jSHOJVJ.jpg"],
+      ["The Haunted Mask", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://static.comicvine.com/uploads/original/11123/111233238/4580520-3376618-6086040402-fhd99.jpg"],
+      ["Deep Trouble", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.dailymail.co.uk/i/pix/2013/11/15/article-2507879-196DFD9E00000578-543_634x638.jpghttp://i.imgur.com/GOyRZxD.jpg"],
+      ["Go Eat Worms", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["Ghost Beach", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["Attack of the Mutant", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["The Barking Ghost", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["Tick Tock You're Dead", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["Bad Hare Day", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["The Coo Coo Cloock of Doom", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["My Hairiest Adventure", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["The Return of the Mummy", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["Why I am Afraid of Bees", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["You Can't Scare Me", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["The Girl Who Cried Monster", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["Stay Out Of the Basement", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
     ]
   end
 end
