@@ -27,3 +27,5 @@
        put scope in to allow to put @items in item_controller
        equal to the items scoped that have retired == false -->
 <% end %>
+
+<br><%= button_to "Delete item", admin_item_path(item_id: @item.id), method: :delete %>

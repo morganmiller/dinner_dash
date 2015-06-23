@@ -16,14 +16,23 @@ feature 'Logged in admin' do
     click_on "Edit Items"
   end
 
-  scenario 'can add new item' do
+  xscenario 'can add new item' do
     click_on "Add new item"
     expect(current_path).to eq(new_admin_item_path)
 
     fill_in "Title", with: "Horrorland II"
     fill_in "Description", with: "Double scary"
     fill_in "Price", with: 59.95
-    page.check "item category ids 1"
+    # save_and_open_page
+    # page.check("retired")
+
+    within("#category-checkboxes li:first-child") do
+      page.check("item[category_ids]['1']")
+    end
+
+    # //*[@id="item_category_ids_1"]
+
+    # find(:css, "#item_category_ids_1").set(true)
 
     click_on "Create item"
 
@@ -31,5 +40,20 @@ feature 'Logged in admin' do
     expect(page).to have_content "Horrorland II"
     expect(page).to have_content "Double scary"
     expect(page).to have_content "$59.95"
+    expect(page).to have_content "Monster"
+  end
+
+  scenario 'cannot add new item without a category' do
+    click_on "Add new item"
+    expect(current_path).to eq(new_admin_item_path)
+
+    fill_in "Title", with: "Horrorland II"
+    fill_in "Description", with: "Double scary"
+    fill_in "Price", with: 59.95
+
+    click_on "Create item"
+
+    expect(page).to have_content "Items needs at least one category!"
+    expect(page).to have_content "Create New Item"
   end
 end

@@ -14,13 +14,23 @@
   <%= hidden_field_tag :retired, "false" %>
   <%= check_box_tag :retired, value = "true" %><br>
 
-  <%= f.label :categories %>
-  <%= f.collection_check_boxes(:category_ids, @categories.to_a, :id, :name) %><br>
+  <!-- <div id="category-checkboxes"> -->
+    <ul>
+      Categories<br>
+      <% Category.all.each do |category| %>
+        <!-- <li id="box_#{category.id}"> -->
+          <%= check_box_tag "item[category_ids][]", category.id %>
+          <%= category.name %><br>
+        <!-- </li> -->
+      <% end %>
+    </ul>
+  <!-- </div> -->
 
   <% if @item.image.exists? %>
     <%= image_tag @item.image.url %><br/>
   <% end %>
-  <%= f.label :image, "Attach an Image" %><br />
+
+  <%= f.label :image, "Attach an Image" %>
   <%= f.file_field :image %>
 
   <%= f.submit "Create item" %><br>
