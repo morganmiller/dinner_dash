@@ -8,15 +8,13 @@
   <%= f.label :price %>
   <%= f.text_field :price, value: @item.price %><br>
 
-  <%= f.label :retired %>
-  <%= check_box_tag :retired, value = true %><br>
-
   <%= f.label :categories %>
   <%= f.collection_check_boxes(:category_ids, @categories.to_a, :id, :name) %><br>
 
   <% if @item.image.exists? %>
     <%= image_tag @item.image.url %><br/>
   <% end %>
+
   <%= f.label :image, "Attach a New Image" %><br />
   <%= f.file_field :image %>
 
@@ -27,3 +25,5 @@
        put scope in to allow to put @items in item_controller
        equal to the items scoped that have retired == false -->
 <% end %>
+
+<br><%= button_to "Retire item", admin_item_path(item_id: @item.id), method: :delete %>

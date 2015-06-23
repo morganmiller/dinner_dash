@@ -1,6 +1,7 @@
 <h1>All Items</h1>
 
-<%= link_to "Add new item", new_admin_item_path %><br><br>
+<%= link_to "Add new item", new_admin_item_path %><br>
+<%= link_to "Add new category", new_admin_category_path %><br><br>
 
 <div id="admin-items">
   <ul>
@@ -9,6 +10,9 @@
         <strong><%= link_to "#{item.title}", admin_item_path(item) %></strong><br>
         <%= item.description %><br>
         <%= number_to_currency item.price %><br>
+        <% if item.retired %>
+          *RETIRED*
+        <% end %><br>
         <%= link_to "Modify item", edit_admin_item_path(item.id) %><br><br>
       </li>
     <% end %>

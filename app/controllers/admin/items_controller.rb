@@ -7,7 +7,6 @@ class Admin::ItemsController < Admin::BaseController
   def create
     @item = Item.new(item_params)
     categories = params[:item][:category_ids].to_a.reject(&:empty?)
-    # byebug
     if @item.save
       categories.each { |category_id| @item.categories << Category.find(category_id) }
       flash[:notice] = "Item successfully created!"
@@ -20,7 +19,6 @@ class Admin::ItemsController < Admin::BaseController
 
   def index
     @items = Item.all
-    #put in scoped method
   end
 
   def edit
@@ -48,7 +46,9 @@ class Admin::ItemsController < Admin::BaseController
 
   def destroy
     @item = Item.find(params[:id])
-    @item.destroy
+    @item.retired = true
+    @item.save
+    flash[:notice] = "Item retired successfully!"
     redirect_to admin_items_path
   end
 
