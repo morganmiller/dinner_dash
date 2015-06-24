@@ -33,8 +33,8 @@ class Seed
   end
 
   def create_orders
-    orders.each do |user_id, status, total_price|
-      Order.create(user_id: user_id, status: status, total_price: total_price)
+    orders.each do |user_id, status, total_price, items|
+      Order.create(user_id: user_id, status: status, total_price: total_price, items: items)
     end
     puts "Orders: #{Order.all.map(&:user_id).join(", ")} created."
   end
@@ -52,16 +52,16 @@ class Seed
 
   def orders
     [
-      [1, "ordered", 1200],
-      [2, "completed", 2200],
-      [3, "cancelled", 400],
-      [3, "paid", 10300],
-      [4, "ordered", 2000],
-      [4, "ordered", 800],
-      [2, "completed", 1001],
-      [1, "ordered", 2003],
-      [3, "cancelled", 300],
-      [1, "paid", 3000],
+      [1, "ordered", 1200, [Item.find(1)]],
+      # [2, "completed", 2200],
+      # [3, "cancelled", 400],
+      # [3, "paid", 10300],
+      # [4, "ordered", 2000],
+      # [4, "ordered", 800],
+      # [2, "completed", 1001],
+      # [1, "ordered", 2003],
+      # [3, "cancelled", 300],
+      # [1, "paid", 3000],
     ]
   end
 
