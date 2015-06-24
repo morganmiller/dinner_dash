@@ -41,7 +41,7 @@ feature 'Logged in admin' do
 
     @order3 = Order.create!(user_id: @user.id,
                             total_price: 89.95,
-                            items: [@item, @item2],
+                            items: [@item],
                             created_at: "2015-06-09 19:35:07",
                             updated_at: "2015-06-23 10:22:17",
                             status: "paid")
@@ -59,35 +59,24 @@ feature 'Logged in admin' do
     click_on "Order Dashboard"
   end
 
-  scenario 'can view order dashboard' do
-    expect(current_path).to eq(admin_orders_path)
+  xscenario 'can view specific order details' do
+    click_on "Order created on 06/09/15"
 
-    expect(page).to have_content "Total number of 'ordered' orders: 1"
-    expect(page).to have_content "Total number of 'paid' orders: 1"
-    expect(page).to have_content "Total number of 'cancelled' orders: 1"
-    expect(page).to have_content "Total number of 'completed' orders: 1"
+    expect(page).to have_content "Order date/time: 2015-06-09 19:35:07"
+    expect(page).to have_content "Purchaser name: Sir Whats"
+    expect(page).to have_content "Purchaser email: fml@database.sucks"
 
-    expect(page).to have_content "Order created on 04/22/15"
-    expect(page).to have_content "Order created on 06/09/15"
-    expect(page).to have_content "Order created on 06/10/15"
-    expect(page).to have_content "Order created on 06/11/15"
+    expect(page).to have_content "Item: Eat Cheese and Die"
+    expect(page).to have_content "Quantity: 1"
+    expect(page).to have_content "Price: $50.65"
+    expect(page).to have_content "Item subtotal: $50.65"
 
-    expect(page).to have_content "Ordered"
-    expect(page).to have_content "Paid"
-    expect(page).to have_content "Cancelled"
-    expect(page).to have_content "Complete"
-
-    expect(page).to have_button "Cancel"
-    expect(page).to have_button "Mark as paid"
-    expect(page).to have_button "Mark as completed"
+    expect(page).to have_content "Order total: $50.65"
+    expect(page).to have_content "Order status: paid"
   end
 
-  xscenario 'can filter order dashboard' do
-    click_on "Cancelled"
+  xscenario 'can view item page through order details' do
+    click_on "Order created on 06/09/15"
 
-    expect(page).to have_content "Order created on 04/22/15"
-    expect(page).to_not have_content "Order created on 06/09/15"
-    expect(page).to_not have_content "Order created on 06/10/15"
-    expect(page).to_not have_content "Order created on 06/11/15"
   end
 end
