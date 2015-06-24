@@ -1,6 +1,7 @@
 class CartController < ApplicationController
   def show
     @items = @cart.items
+    @cart = Cart.new(session[:cart])
   end
 
   def create
