@@ -7,6 +7,7 @@ class Seed
     create_users
     create_categories
     create_items
+    create_orders
   end
 
   def create_users
@@ -76,7 +77,7 @@ class Seed
       ["Let's Get Invisible", "It has 0 calories.", 50.00, [Category.find(4)], "http://i.imgur.com/yHAHhLt.png"],
       ["The Ghost Next Door", "Like eating Patrick Swayze", 50.00, [Category.find(4)], "http://i.imgur.com/jSHOJVJ.jpg"],
       ["The Haunted Mask", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://static.comicvine.com/uploads/original/11123/111233238/4580520-3376618-6086040402-fhd99.jpg"],
-      ["Deep Trouble", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.dailymail.co.uk/i/pix/2013/11/15/article-2507879-196DFD9E00000578-543_634x638.jpghttp://i.imgur.com/GOyRZxD.jpg"],
+      ["Deep Trouble", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.dailymail.co.uk/i/pix/2013/11/15/article-2507879-196DFD9E00000578-543_634x638.jpg"],
       ["Go Eat Worms", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
       ["Ghost Beach", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
       ["Attack of the Mutant", "Spooky Spooky Spooky", 50.00, [Category.find(4)], "http://i.imgur.com/GOyRZxD.jpg"],
