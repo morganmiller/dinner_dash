@@ -1,25 +1,39 @@
 
 
 <div class="row main-title">
-  <h1>Welcome to R.L.'s Diner!</h1>
+  <script src="jquery.js"></script>
+  <script src="typed.js"></script>
+  <script>
+    $(function(){
+      $(".element").typed({
+        strings: ["Welcome to R.L.'s Diner!"],
+        typeSpeed: -7
+      });
+    });
+  </script>
+
+  <div><span class="element"></span></div>
+  <!--<h1>Welcome to R.L.'s Diner!</h1>-->
 </div>
 
-<div class="row">
+<div class="row" data-equalizer>
   <% @categories.each do |category| %>
     <%= link_to "#{category.name}", category_path(category.id) %>
   <% end %>
 
-  <div id="items">
+  <!--<div id="items" data-equalizer>-->
     <ul>
       <% @items.each do |item| %>
-        <li class="large-4 columns">
-          <p><%= image_tag item.image.url(:thumb) %></p>
-          <%= item.title %>:
-          <%= item.description %>,
-          <%= number_to_currency item.price %><br>
-          <%= link_to "View item", item %>
-        </li>
+        <div class="large-4 columns" data-equalizer-watch>
+          <!--<div id="individual-item">-->
+            <p><%= image_tag item.image.url(:thumb) %></p>
+            <%= item.title %>:
+            <%= item.description %>,
+            <%= number_to_currency item.price %><br>
+            <%= link_to "View item", item %>
+          <!--</div>-->
+        </div>
       <% end %>
     </ul>
-  </div>
+  <!--</div>-->
 </div>

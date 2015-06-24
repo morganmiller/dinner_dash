@@ -106,7 +106,7 @@ private
   def items
     [
       ["Eat Cheese & Die", "The ooziest grilled cheese", 50.00, [monster, other], "http://ak-hdl.buzzfed.com/static/enhanced/web03/2012/8/13/15/enhanced-buzz-24632-1344884422-14.jpg"],
-      ["Welcome to Dead House",  "That ain't gingerbread, it's Shaun White.", 50.00, [ghost], "http://cache.boston.com/bonzai-fba/Original_Photo/2010/10/29/house2__1288371510_5663.jpg"],
+      ["Welcome to Dead House",  "That ain't gingerbread.", 50.00, [ghost], "http://cache.boston.com/bonzai-fba/Original_Photo/2010/10/29/house2__1288371510_5663.jpg"],
       ["Monster Blood Martini", "A sticky treat", 50.00, [monster, vampire], "http://i.imgur.com/GOyRZxD.jpg"],
       ["Let's Get Invisible", "It has 0 calories.", 50.00, [ghost], "http://i.imgur.com/yHAHhLt.png"],
       ["The Ghost Next Door", "Like eating Patrick Swayze", 50.00, [ghost], "http://i.imgur.com/jSHOJVJ.jpg"],
