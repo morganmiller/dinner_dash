@@ -1,18 +1,21 @@
 <h1>Your Cart</h1>
-
-<ul>
-  <%= form_tag cart_path, method: :post do %>
-      <% @items.each do |item, quantity| %>
-        <li id="cart-item">
-          <%= item.title %><br>
-          <%= item.description %><br>
-          Price: <%= number_to_currency item.price %><br>
-          <%= label_tag("new_cart[#{item.id}]", "Quantity:") %>
-          <%= text_field_tag "new_cart[#{item.id}]", quantity %><br>
-          <%= link_to "Delete", cart_items_path(item_id: item.id), method: :delete %>
+<div class="row">
+  <div class="large-12 columns">
+    <ul>
+      <%= form_tag cart_path, method: :post do %>
+        <% @items.each do |item, quantity| %>
+          <li id="cart-item">
+            <%= item.title %><br>
+            <%= item.description %><br>
+            Price: <%= number_to_currency item.price %><br>
+            <%= label_tag("new_cart[#{item.id}]", "Quantity:") %>
+            <%= text_field_tag "new_cart[#{item.id}]", quantity %><br>
+            <%= link_to "Delete", cart_items_path(item_id: item.id), method: :delete, class: "tiny button radius" %>
+        <% end %>
+        </li>
+        <%= submit_tag 'Update cart', class: "tiny button radius" %>
       <% end %>
-      </li>
-      <%= submit_tag 'Update cart' %>
-  <% end %>
-  <%= button_to 'Checkout', orders_path %>
-</ul>
+      <%= button_to 'Checkout', orders_path, class: "tiny button radius" %>
+    </ul>
+  </div>
+</div>
