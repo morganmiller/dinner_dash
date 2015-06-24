@@ -4,13 +4,14 @@ class Order < ActiveRecord::Base
   has_many :items, through: :order_items
 
   default_scope { order('created_at DESC') }
-  scope :by_user, ->(user_id) { where(user_id: user_id) }
-  
+  scope :by_user, -> (user_id) { where(user_id: user_id) }
+  scope :by_status, -> (status) { where(status: status) }
+
   validates :status,
             presence: true,
-            inclusion: { in: %w(ordered paid cancelled complete), 
+            inclusion: { in: %w(ordered paid cancelled complete),
                          message: "must be ordered, paid, cancelled or complete."}
-  
+
   def formatted_date
     created_at.strftime("%m/%d/%y")
   end

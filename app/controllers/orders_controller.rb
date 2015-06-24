@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  
   def create
     if current_user
       cart = Cart.new(session[:cart])
@@ -15,18 +14,18 @@ class OrdersController < ApplicationController
       redirect_to login_path
     end
   end
-  
+
   def index
     @orders = Order.by_user(current_user.id)
   end
 
   def show
     @order = Order.find(params[:id])
-    
+
     if @order.user != current_user
       render status: :forbidden, text: "You do not have access to this page."
     end
-    
+
     @order_items = @order.order_items
   end
 end

@@ -1,1 +1,23 @@
 <h1>Order Dashboard</h1>
+
+Total number of 'ordered' orders: <%= @ordered_orders.count %><br>
+Total number of 'paid' orders: <%= @paid_orders.count %><br>
+Total number of 'cancelled' orders: <%= @cancelled_orders.count %><br>
+Total number of 'completed' orders: <%= @completed_orders.count %>
+
+<br><br>Sort by order status:
+
+<ul id="admin-orders">
+  <% @orders.each do |order| %>
+    <br><li><%= link_to "Order created on #{order.formatted_date}", order_path(order) %></li>
+    <li>Status: <%= order.status.capitalize %></li>
+    <% if order.status == "ordered" %>
+      <%= button_to "Mark as paid" %>
+    <% elsif order.status == "paid" %>
+      <%= button_to "Mark as completed" %>
+    <% end %>
+    <% if order.status == "ordered" || order.status == "paid" %>
+      <%= button_to "Cancel" %>
+    <% end %>
+  <% end %>
+</ul>
