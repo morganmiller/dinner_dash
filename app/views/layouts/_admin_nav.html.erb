@@ -5,12 +5,13 @@
   <li class="active">
     <%= link_to "Logout", logout_path, method: :delete %>
   </li>
-  <li class="has-dropdown">
-    <%= link_to "Dashboard", '#' %>
-    <ul class="dropdown">
-      <li class="active"><%= link_to "Edit Items", admin_items_path %></li>
-      <li class="active"><%= link_to "Order Dashboard", admin_orders_path %></li>
-      <li class="active"><%= link_to "Create Categories", admin_categories_path %></li>
-    </ul>
+  <li class="active">
+    <%= link_to "Edit Items", admin_items_path %>
+  </li>
+  <li class="active">
+    <%= link_to "Order Dashboard", admin_orders_path %>
+  </li>
+  <li class="active">
+    <%= link_to "Create Categories", admin_categories_path %>
   </li>
 </ul>
