@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
       cart.items.each do |item, quantity|
         order.order_items.create!(item: item, quantity: quantity, line_item_price: item.price * quantity.to_i)
       end
+      session[:cart] = {}
       flash[:notice] = "You have purchased #{cart.items_total} spooky item(s)"
       redirect_to order_path(order)
     else

@@ -33,6 +33,14 @@ feature 'User clicks checkout' do
     expect(page).to have_content "Your Order"
   end
   
+  scenario 'and if successful, their cart is cleared' do
+    allow_any_instance_of(ApplicationController).to receive(:current_user) { @user }
+
+    click_on "Checkout"
+    visit '/cart'
+    expect(page).to_not have_content "Eat Cheese and Die"
+  end
+  
   scenario 'and cannot checkout if unauthorized' do
     click_on "Checkout"
     
