@@ -82,9 +82,9 @@ feature 'Logged in admin' do
     expect(page).to have_button "Mark as completed"
   end
 
-  xscenario 'can filter order dashboard' do
+  scenario 'can filter order dashboard' do
     click_on "Cancelled"
-
+    save_and_open_page
     expect(page).to have_content "Order created on 04/22/15"
     expect(page).to_not have_content "Order created on 06/09/15"
     expect(page).to_not have_content "Order created on 06/10/15"
