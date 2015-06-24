@@ -71,7 +71,7 @@ class Seed
 
   def items
     [
-      ["Eat Cheese & Die", "The ooziest grilled cheese", 50.00, [Category.find(1)], "http://ak-hdl.buzzfed.com/static/enhanced/web03/2012/8/13/15/enhanced-buzz-24632-1344884422-14.jpg"],
+      ["Say Cheese & Die", "The ooziest grilled cheese", 50.00, [Category.find(1)], "http://ak-hdl.buzzfed.com/static/enhanced/web03/2012/8/13/15/enhanced-buzz-24632-1344884422-14.jpg"],
       ["Welcome to Dead House",  "That ain't gingerbread, it's Shaun White.", 50.00, [Category.find(1), Category.find(2)], "http://cache.boston.com/bonzai-fba/Original_Photo/2010/10/29/house2__1288371510_5663.jpg"],
       ["Monster Blood Martini", "A sticky treat", 50.00, [Category.find(1)], "http://i.imgur.com/GOyRZxD.jpg"],
       ["Let's Get Invisible", "It has 0 calories.", 50.00, [Category.find(4)], "http://i.imgur.com/yHAHhLt.png"],
