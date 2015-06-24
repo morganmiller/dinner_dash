@@ -83,7 +83,7 @@ feature 'Logged in admin' do
   end
 
   scenario 'can filter order dashboard' do
-    click_on #category filter "cancelled"
+    click_on "Cancelled"
 
     expect(page).to have_content "Order created on 04/22/15"
     expect(page).to_not have_content "Order created on 06/09/15"
