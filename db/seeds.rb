@@ -49,7 +49,7 @@ class Seed
     puts "Orders for the following users: #{Order.all.map(&:user_id).join(", ")} created."
   end
 
-  private
+private
 
   def users
     [
@@ -145,6 +145,7 @@ class Seed
       { "5" => 1, "15" => 5 }
     ]
   end
+  
 end
 
 Seed.start
