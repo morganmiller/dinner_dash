@@ -1,19 +1,30 @@
 <h1>Sign Up</h1>
 
-<%# raise @user.inspect %>
-<%= form_for(User.new) do |f| %>
+<div class="row">
+  <form>
+    <%= form_for(User.new) do |f| %>
 
-  <%= f.label :full_name %>
-  <%= f.text_field :full_name %> <br>
+      <div class="large-12 columns">
+        <%= f.label :full_name %>
+        <%= f.text_field :full_name, :placeholder => "full name"%>
+      </div>
 
-  <%= f.label :display_name %>
-  <%= f.password_field :display_name %> <br>
-  
-  <%= f.label :email %>
-  <%= f.text_field :email %> <br>
+      <div class="large-12 columns">
+        <%= f.label :display_name %>
+        <%= f.password_field :display_name, :placeholder => "display name"%>
+      </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %> <br>
-  
-  <%= f.submit "Sign up" %>
-<% end %>
+      <div class="large-12 columns">
+        <%= f.label :email %>
+        <%= f.text_field :email,  :placeholder => "email"%>
+      </div>
+
+      <div class="large-12 columns">
+        <%= f.label :password %>
+        <%= f.password_field :password,  :placeholder => "password"%>
+      </div>
+
+      <%= f.submit "Sign up" %>
+    <% end %>
+  </form>
+</div>

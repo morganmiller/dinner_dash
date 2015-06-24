@@ -1,13 +1,22 @@
 <h1>Login</h1>
 
-<%= form_for(:session, url: "/login") do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email %> <br>
+<div class="row">
+  <form>
+  <%= form_for(:session, url: "/login") do |f| %>
 
+      <div class="large-12 large-centered columns">
+      <%= f.label :email %>
+  <%= f.text_field :email, :placeholder => "email"  %>
+      </div>
+
+      <div class="large-12 columns">
   <%= f.label :password %>
-  <%= f.password_field :password %> <br>
+  <%= f.password_field :password, :placeholder => "password" %>
+      </div>
 
   <%= f.submit "Login" %>
 <% end %>
+  </form>
+</div>
 
 <p>Not a registered user? <%= link_to "Create an account!", new_user_path %></p>
