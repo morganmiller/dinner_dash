@@ -16,7 +16,6 @@ feature 'Admin logs in' do
     expect(page).to have_content("Dashboard")
     expect(page).to have_content("Edit Items")
     expect(page).to have_content("Order Dashboard")
-    expect(page).to have_content("Create Categories")
 
     click_on "Edit Items"
 
@@ -34,9 +33,10 @@ feature 'Admin logs in' do
   end
 
   scenario 'and can access functionality to create categories' do
-    click_on "Create Categories"
+    click_on "Edit Items"
+    click_on "Add new category"
 
-    expect(current_path).to eq(admin_categories_path)
-    expect(page).to have_content("All Categories")
+    expect(current_path).to eq(new_admin_category_path)
+    expect(page).to have_content("Create New Category")
   end
 end
