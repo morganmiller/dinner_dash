@@ -1,18 +1,17 @@
-$(document).ready(function () {
-
-  var $items = $('.item');
-
-  $('#item_filter_category').on('change', function () {
-    var currentCategory = this.value;
-    $items.each(function (index, item) {
-      $item = $(item);
-      // ^ item here is wrapped as a jquery object with $()
-      if ($item.data('category') === currentCategory) {
-        $item.show();
-      } else {
-        $item.hide();
+$(document).ready(function() {
+  $('#mix-wrapper').mixItUp({
+      animation: {
+          effects: 'fade rotateZ(-180deg)', /* fade scale */
+          duration: 700 /* 600 */
+      },
+      selectors: {
+          target: '.mix-target', /* .mix */
+          filter: '.filter-btn' /* .filter */
+      },
+      callbacks: {
+          onMixEnd: function(state) {
+              console.log(state) /* null */
+          }
       }
-    });
   });
-
 });

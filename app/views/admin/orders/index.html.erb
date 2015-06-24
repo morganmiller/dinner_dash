@@ -6,18 +6,29 @@ Total number of 'cancelled' orders: <%= @cancelled_orders.count %><br>
 Total number of 'completed' orders: <%= @completed_orders.count %>
 
 <br><br>Sort by order status:
+<div class="row">
+  <div class="twelve columns">
+    <div class="programs">
+      <button class="filter-btn" data-filter=".paid">Paid</button>
+      <button class="filter-btn" data-filter=".cancelled">Cancelled</button>
+      <button class="filter-btn" data-filter=".complete">Complete</button>
+      <button class="filter-btn" data-filter=".ordered">Ordered</button>
+    </div>
+  </div>
+</div>
 
-<ul id="admin-orders">
+
+<ul class="admin-orders" id="mix-wrapper">
   <% @orders.each do |order| %>
-    <br><li><%= link_to "Order created on #{order.formatted_date}", order_path(order) %></li>
-    <li>Status: <%= order.status.capitalize %></li>
+    <br><li class="mix-target <%= order.status %>"><%= link_to "Order created on #{order.formatted_date}", order_path(order) %><br>
+    Status: <%= order.status.capitalize %>
     <% if order.status == "ordered" %>
       <%= button_to "Mark as paid" %>
     <% elsif order.status == "paid" %>
       <%= button_to "Mark as completed" %>
     <% end %>
     <% if order.status == "ordered" || order.status == "paid" %>
-      <%= button_to "Cancel" %>
+      <%= button_to "Cancel" %></li>
     <% end %>
   <% end %>
 </ul>
