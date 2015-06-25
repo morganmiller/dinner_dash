@@ -1,10 +1,32 @@
-<h1>Category: <%= @category.name %></h1>
+<div id="bg">
+  <img src="<%= asset_path( 'dark_360.jpg' ) %>" alt="background">
+  <div class="main-title">
+    <script>
+      $(function(){
+        $(".element").typed({
+          strings: ["Welcome to R.L.'s Diner...", "Be careful what you wish for."],
+          typeSpeed: 100
+        });
+      });
+    </script>
+    <div><p class="main-title-caption"><span class="element"></span></p></div>
+  </div>
+</div>
 
-<% @items.each do |item, quantity| %>
-  <li>
-    <%= item.title %><br>
-    <%= item.description %><br>
-    Price: <%= number_to_currency item.price %><br>
-    <%= link_to "View item", item %><br>
-  </li><br>
-<% end %>
+<div class="row">
+  <h1>Category: <%= @category.name %></h1>
+
+  <div id="items">
+    <ul>
+      <% @items.each do |item| %>
+        <li class="large-4 columns">
+          <p><%= image_tag item.image.url(:medium) %></p>
+          <%= item.title %>:
+          <%= item.description %>,
+          <%= number_to_currency item.price %><br>
+          <%= link_to "View item", item %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
