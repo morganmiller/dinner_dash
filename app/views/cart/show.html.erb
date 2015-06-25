@@ -17,7 +17,7 @@
               <div class="small-3 columns">
                 <%= label_tag("new_cart[#{item.id}]", "Quantity:") %>
                 <%= text_field_tag "new_cart[#{item.id}]", quantity %>
-                <%= link_to "Delete", cart_items_path(item_id: item.id), method: :delete, class: "tiny button radius" %>
+                <%= link_to "Delete", cart_items_path(item_id: item.id), method: :delete, class: "tiny button radius" %>  
               </div>
             </div>
         <% end %>
