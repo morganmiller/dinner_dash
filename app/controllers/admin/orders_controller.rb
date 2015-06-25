@@ -1,7 +1,6 @@
 class Admin::OrdersController < Admin::BaseController
   def index
     @orders = Order.all
-    @orders = @orders.by_status(params[:status]) if params[:status].present?
 
     @ordered_orders = Order.by_status("ordered")
     @paid_orders = Order.by_status("paid")
