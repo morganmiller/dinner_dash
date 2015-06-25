@@ -27,10 +27,10 @@
       <% if order.status == "ordered" %>
         <%= button_to "Mark as paid", admin_order_path(order, status: "paid"), method: :patch, class: "tiny button radius" %>
       <% elsif order.status == "paid" %>
-        <%= button_to "Mark as completed", edit_admin_order_path(order, status: "complete"), method: :patch, class: "tiny button radius" %>
+        <%= button_to "Mark as completed", admin_order_path(order, status: "complete"), method: :patch, class: "tiny button radius" %>
       <% end %>
       <% if order.status == "ordered" || order.status == "paid" %>
-        <%= button_to "Cancel", edit_admin_order_path(order, status: "cancelled"), method: :patch, class: "tiny button radius" %></li>
+        <%= button_to "Cancel", admin_order_path(order, status: "cancelled"), method: :patch, class: "tiny button radius" %></li>
       <% end %>
     <% end %>
   </ul>
