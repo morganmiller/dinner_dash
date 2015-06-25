@@ -37,14 +37,27 @@ class Seed
       cart = Cart.new(session_cart)
       OrderCreator.execute_order(cart, random_user)
     end
-    Order.find(2).status = "paid"
-    Order.find(4).status = "paid"
+    
+    order = Order.find(2)
+    order.status = "paid"
+    order.save!
+    order = Order.find(4)
+    order.status = "paid"
+    order.save!
+    
+    order = Order.find(6)
+    order.status = "complete"
+    order.save!
+    order = Order.find(8)
+    order.status = "complete"
+    order.save!
 
-    Order.find(6).status = "completed"
-    Order.find(8).status = "completed"
-
-    Order.find(10).status = "cancelled"
-    Order.find(12).status = "cancelled"
+    order = Order.find(10)
+    order.status = "cancelled"
+    order.save!
+    order = Order.find(12)
+    order.status = "cancelled"
+    order.save!
     
     puts "Orders for the following users: #{Order.all.map(&:user_id).join(", ")} created."
   end
@@ -62,21 +75,6 @@ private
   
   def random_user
     User.find([1,2,3,4].sample)
-  end
-
-  def orders
-    [
-      [1, "ordered", 1200],
-      [2, "completed", 2200],
-      [3, "cancelled", 400],
-      [3, "paid", 10300],
-      [4, "ordered", 2000],
-      [4, "ordered", 800],
-      [2, "completed", 1001],
-      [1, "ordered", 2003],
-      [3, "cancelled", 300],
-      [1, "paid", 3000],
-    ]
   end
 
   def categories

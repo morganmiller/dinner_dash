@@ -9,9 +9,8 @@ class Admin::OrdersController < Admin::BaseController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @user = User.find(@order.user_id)
     @order_items = @order.order_items
-    # @order = Order.find(params[:id])
-    # @user = User.find(@order.user_id)
-    # @items = @order.items
   end
 end

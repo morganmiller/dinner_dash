@@ -1,12 +1,12 @@
 <h1>Your Order</h1>
 
 <% @order_items.each do |order_item| %>
-  <%= link_to order_item.item.title, item_path(order_item.item) %>
-  <%= order_item.quantity %>
-  <%= number_to_currency order_item.line_item_price %>
+  <%= link_to order_item.item.title, item_path(order_item.item) %><br>
+  <%= order_item.quantity %><br>
+  <%= number_to_currency order_item.item.price %>
 <% end %>
 
-<h2>Total Order Cost: <%= @order.total_price %></h2>
+<br><br><h2>Total Order Cost: <%= @order.total_price %></h2>
 <h2>Order Status: <%= @order.status %></h2>
 <h2>Order placed on <%= @order.formatted_date %> at <%= @order.timestamp %></h2>
 <h2>Order marked as <%= @order.status %> at <%= @order.updated_time %></h2>

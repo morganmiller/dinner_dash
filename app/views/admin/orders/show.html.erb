@@ -5,11 +5,11 @@ Purchaser name: <%= @user.full_name %>
 Purchaser email: <%= @user.email %>
 
 <% @order_items.each do |order_item| %>
-  Item: <%= item.title %>
-  Price: <%= item.price %>
-  Quantity: <%= item.order_item.by_order(@order.id).quantity %>
-  Item subtotal: <%= item.order_item.order_item.line_item_price %>
+  Item: <%= link_to order_item.item.title, admin_item_path(order_item.item) %>
+  Price: <%= number_to_currency order_item.item.price %>
+  Quantity: <%= order_item.quantity %>
+  Item subtotal: <%= number_to_currency order_item.line_item_price %>
 <% end %>
 
-Order total:
-Order status:
+Order total: <%= number_to_currency @order.total_price %>
+Order status: <%= @order.status %>

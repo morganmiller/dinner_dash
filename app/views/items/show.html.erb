@@ -16,7 +16,7 @@
         <% end %>
       </ul>
       <% unless @item.retired? %>
-        <%= button_to "Add to cart", cart_items_path(item_id: @item.id) %>
+        <%= button_to "Add to cart", cart_items_path(item_id: @item.id), class:"tiny button radius" %>
       <% end %>
     </h4>
   </div>
