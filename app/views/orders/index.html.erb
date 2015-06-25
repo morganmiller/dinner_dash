@@ -1,7 +1,13 @@
-<h1>Your Orders</h1>
-
-<ul id="orders">
-  <% @orders.each do |order| %>
-    <li><%= link_to "Order created on #{order.formatted_date}", order_path(order) %></li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="blank-separator">
+    <div class="large-4 large-centered columns">
+      <h1>Your Orders</h1>
+      
+      <ul id="orders">
+        <% @orders.each do |order| %>
+          <li><%= link_to "Order created on #{order.formatted_date}", order_path(order) %></li>
+        <% end %>
+      </ul>
+    </div>  
+  </div>
+</div>

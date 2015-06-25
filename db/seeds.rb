@@ -123,7 +123,7 @@ private
       ["You Can't Scare Me", "But it will give you hiccups", 83.87, [vampire, ghost], "http://cdn.thatsnerdalicious.com/wp-content/uploads/2010/12/meat-lovers-banana-split-9294-1291275521-28.jpg?a0509d"],
       ["The Girl Who Cried Monster", "It's wolf", 12.43, [monster], "http://www.greatist.com/sites/default/files/wp-content/uploads/2011/06/ice-cream-ramen-1.jpg"],
       ["Stay Out Of the Basement", "Sadly, we live in one", 60.76, [ghost], "http://blog.eat24hours.com/wp-content/uploads/2014/06/palak.jpg"],
-      ["The Horror of Camp JellyJam", "Better than whore of jellyjam", 54.44, [ghost], "http://www.chowstatic.com/assets/recipe_photos/30283_hurricane_jelly_shot.jpg"],
+      ["The Horror of Camp JellyJam", "What's the dif between jelly & jam?", 54.44, [ghost], "http://www.chowstatic.com/assets/recipe_photos/30283_hurricane_jelly_shot.jpg"],
     ]
   end
   

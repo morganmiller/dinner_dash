@@ -1,12 +1,26 @@
-<h1>Your Order</h1>
-
-<% @order_items.each do |order_item| %>
-  <%= link_to order_item.item.title, item_path(order_item.item) %><br>
-  <%= order_item.quantity %><br>
-  <%= number_to_currency order_item.item.price %>
-<% end %>
-
-<br><br><h2>Total Order Cost: <%= @order.total_price %></h2>
-<h2>Order Status: <%= @order.status %></h2>
-<h2>Order placed on <%= @order.formatted_date %> at <%= @order.timestamp %></h2>
-<h2>Order marked as <%= @order.status %> at <%= @order.updated_time %></h2>
+<<<<<<< HEAD
+<div class="row">
+  <div class="large-9 large-centered columns">
+    <h1>Your Order</h1>
+  
+    <% @order_items.each do |order_item| %>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= image_tag order_item.item.image.url(:thumb) %><br>
+        </div>
+        <div class="small-6 columns">
+          <%= link_to order_item.item.title, item_path(order_item.item) %><br>
+          Quantity: <%= order_item.quantity %><br>
+          Subtotal: <%= number_to_currency order_item.line_item_price %><br>
+        </div>
+      </div>
+    <% end %>
+    
+    <br>
+    
+    <h3>Total Order Cost: <%= @order.total_price %></h3>
+    <h3>Order Status: <%= @order.status %></h3>
+    <h3>Order placed on <%= @order.formatted_date %> at <%= @order.timestamp %></h3>
+    <h3>Order marked as <%= @order.status %> at <%= @order.updated_time %></h3>
+  </div>
+</div>
