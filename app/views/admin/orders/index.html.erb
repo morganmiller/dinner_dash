@@ -7,22 +7,22 @@
   Total number of 'cancelled' orders: <%= @cancelled_orders.count %><br>
   Total number of 'completed' orders: <%= @completed_orders.count %>
   
-  <!--<br><br>Sort by order status:-->
-  <!--<div class="row">-->
-    <!--<div class="twelve columns">-->
-      <!--<div class="programs">-->
-        <!--<button class="filter-btn" data-filter=".paid">Paid</button>-->
-        <!--<button class="filter-btn" data-filter=".cancelled">Cancelled</button>-->
-        <!--<button class="filter-btn" data-filter=".complete">Complete</button>-->
-        <!--<button class="filter-btn" data-filter=".ordered">Ordered</button>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
+  <br><br>Sort by order status:
+  <div class="row">
+    <div class="twelve columns">
+      <div class="programs">
+        <button class="filter-btn" data-filter=".paid">Paid</button>
+        <button class="filter-btn" data-filter=".cancelled">Cancelled</button>
+        <button class="filter-btn" data-filter=".complete">Complete</button>
+        <button class="filter-btn" data-filter=".ordered">Ordered</button>
+      </div>
+    </div>
+  </div>
   
   
   <ul class="admin-orders" id="mix-wrapper">
     <% @orders.each do |order| %>
-      <br><li class="mix-target <%= order.status %>"><%= link_to "Order created on #{order.formatted_date}", admin_torder_path(order) %><br>
+      <br><li class="mix-target <%= order.status %>"><%= link_to "Order created on #{order.formatted_date}", admin_order_path(order) %><br>
       Status: <%= order.status.capitalize %>
       <% if order.status == "ordered" %>
         <%= button_to "Mark as paid", admin_order_path(order, status: "paid"), method: :patch, class: "tiny button radius" %>

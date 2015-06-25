@@ -17,7 +17,7 @@ gem 'execjs'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
+gem 'jquery-turbolinks'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
