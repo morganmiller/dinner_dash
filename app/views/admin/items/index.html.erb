@@ -7,6 +7,7 @@
   <ul>
     <% @items.each do |item| %>
       <li>
+        <%= image_tag item.image.url(:thumb) %><br>
         <strong><%= link_to "#{item.title}", admin_item_path(item) %></strong><br>
         <%= item.description %><br>
         <%= number_to_currency item.price %><br>
