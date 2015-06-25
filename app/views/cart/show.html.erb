@@ -9,13 +9,15 @@
             <%= item.description %><br>
             Price: <%= number_to_currency item.price %><br>
             <%= label_tag("new_cart[#{item.id}]", "Quantity:") %>
-            <%= text_field_tag "new_cart[#{item.id}]", quantity %><br>
+            <%= text_field_tag "new_cart[#{item.id}]", quantity %>
             <%= link_to "Delete", cart_items_path(item_id: item.id), method: :delete, class: "tiny button radius" %>
         <% end %>
         </li>
-        <%= submit_tag 'Update cart', class: "tiny button radius" %>
+        <br><li class="right">Total Cost: <%= number_to_currency @cart.total_price %></li><br>
+        <li class="right"><%= submit_tag 'Update cart', class: "tiny button radius" %></li>
       <% end %>
-      <%= button_to 'Checkout', orders_path, class: "tiny button radius" %>
+      <br><br><br>
+      <li class="right"><%= button_to 'Checkout', orders_path, class: "tiny button radius" %></li>
     </ul>
   </div>
 </div>

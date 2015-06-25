@@ -86,16 +86,13 @@ $include-html-global-classes: $include-html-classes;
 // c. Global
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-
+//font-family: 'Special Elite', cursive;
 
 // We use these to define default font stacks
- $font-family-sans-serif: "Raleway", Helvetica, Roboto, Arial, sans-serif;
+ $font-family-sans-serif: "Special Elite", Helvetica, Roboto, Arial, sans-serif;
  //$font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
  //$font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 
-* {
-  font-family: 'Raleway', sans-serif;
-}
 
 
 // We use these to define default font weights
@@ -217,7 +214,7 @@ $primary-color: #00FF00;
 // $include-html-type-classes: $include-html-classes;
 
 // We use these to control header font styles
-// $header-font-family: $body-font-family;
+$header-font-family: $font-family-sans-serif;
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: normal;
  $header-font-color: #FAFAFA;
@@ -1411,12 +1408,12 @@ $primary-color: #00FF00;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
- $topbar-height: rem-calc(60);
+ $topbar-height: rem-calc(59);
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: $font-weight-normal;
- $topbar-title-font-size: rem-calc(25);
+ $topbar-title-font-size: rem-calc(19);
 
 // Set the link colors and styles for top-level nav
 // $topbar-link-color: $white;
@@ -1424,7 +1421,7 @@ $primary-color: #00FF00;
 // $topbar-link-color-active: $white;
 // $topbar-link-color-active-hover: $white;
 // $topbar-link-weight: $font-weight-normal;
- $topbar-link-font-size: rem-calc(25);
+ $topbar-link-font-size: rem-calc(19);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
 // $topbar-link-bg-hover: $jet;
@@ -1494,14 +1491,15 @@ $primary-color: #00FF00;
 
 @import 'foundation';
 
+#bg img {
+  position: no-repeat center center fixed;
+  width: 100%;
+  height: auto;
+}
 
 body {
-  background-image:asset_url("dark_360.jpg");
-  background-size:cover;
-  background-color:black;
-  font: {
-    color: red;
-  }
+  background-color: #000;
+
 }
 
 .row {
@@ -1514,16 +1512,23 @@ body {
 
 .top-bar {
   background-color: black;
-  //height: 60px;
 }
 
+.top-bar.name {
+  font-family: 'Special Elite', cursive;
+}
+
+h1 {
+  font-family: 'Special Elite', cursive;
+}
 
 .main-title {
-  min-height: 600px;
+  //min-height: 600px;
   text-align: center;
   h1{
+    font-family: 'Special Elite', cursive;
     color: #FFF;
-    padding-top: 290px;
+    padding-top: 25px;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   }
 }
@@ -1532,3 +1537,16 @@ ul {
   list-style-type: none;
 }
 
+li.right {
+  float: right;
+}
+
+
+* {
+  font-family: 'Special Elite', cursive;
+}
+
+#individual-item {
+  margin-bottom: 20%;
+//  padding: 20px
+}
