@@ -15,6 +15,8 @@ feature 'Logged in admin' do
                           display_name: "admin",
                           role: 1)
 
+    allow_any_instance_of(ApplicationController).to receive(:current_user) { @user }
+
     @item = Item.create!(title: "Eat Cheese and Die",
                          description: "The spookiest grilled cheese.",
                          price: 50.65,
@@ -25,44 +27,23 @@ feature 'Logged in admin' do
                            price: 200.99,
                            categories: [category])
 
-    @order = Order.create!(user_id: @user.id,
-                           total_price: 50.65,
-                           items: [@item],
-                           created_at: "2015-06-11 19:35:07",
-                           updated_at: "2015-06-13 10:22:17",
-                           status: "ordered")
+    visit root_path
+    within("#items li:nth-child(1)") do
+      click_on "View item"
+    end
 
-    @order2 = Order.create!(user_id: @user.id,
-                            total_price: 89.95,
-                            items: [@item, @item2],
-                            created_at: "2015-06-10 19:35:07",
-                            updated_at: "2015-06-12 10:22:17",
-                            status: "complete")
-
-    @order3 = Order.create!(user_id: @user.id,
-                            total_price: 89.95,
-                            items: [@item],
-                            created_at: "2015-06-09 19:35:07",
-                            updated_at: "2015-06-23 10:22:17",
-                            status: "paid")
-
-    @order4 = Order.create!(user_id: @user.id,
-                            total_price: 39.30,
-                            items: [@item2],
-                            created_at: "2015-04-22 19:35:07",
-                            updated_at: "2015-04-23 10:22:17",
-                            status: "cancelled")
+    click_on "Add to cart"
+    click_on "Checkout"
 
     allow_any_instance_of(ApplicationController).to receive(:current_user) { @admin }
-
-    visit root_path
+    visit admin_root_path
     click_on "Order Dashboard"
   end
 
   scenario 'can view specific order details' do
-    click_on "Order created on 06/09/15"
+    click_on "Order created on 06/25/15"
 
-    expect(page).to have_content "Order date/time: 2015-06-09 19:35:07"
+    expect(page).to have_content "Order date/time"
     expect(page).to have_content "Purchaser name: Sir Whats"
     expect(page).to have_content "Purchaser email: fml@database.sucks"
 
@@ -72,11 +53,13 @@ feature 'Logged in admin' do
     expect(page).to have_content "Item subtotal: $50.65"
 
     expect(page).to have_content "Order total: $50.65"
-    expect(page).to have_content "Order status: paid"
+    expect(page).to have_content "Order status: ordered"
   end
 
-  xscenario 'can view item page through order details' do
-    click_on "Order created on 06/09/15"
+  scenario 'can view item page through order details' do
+    click_on "Order created on 06/25/15"
+    click_on "Eat Cheese and Die"
 
+    expect(current_path).to eq(admin_item_path(@item.id))
   end
 end

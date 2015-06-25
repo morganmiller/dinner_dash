@@ -12,6 +12,5 @@ class Admin::OrdersController < Admin::BaseController
     @order = Order.find(params[:id])
     @user = User.find(@order.user_id)
     @order_items = @order.order_items
-    # @items = @order.items
   end
 end
