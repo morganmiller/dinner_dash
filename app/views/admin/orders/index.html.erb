@@ -20,8 +20,8 @@ Total number of 'completed' orders: <%= @completed_orders.count %>
 
 <ul class="admin-orders" id="mix-wrapper">
   <% @orders.each do |order| %>
-    <br><li class="mix-target <%= order.status %>"><%= link_to "Order created on #{order.formatted_date}", order_path(order) %><br>
-    Status: <%= order.status.capitalize %>
+    <li class="mix-target <%= order.status %>"><%= link_to "Order created on #{order.formatted_date}", admin_order_path(order) %>
+    <br>Status: <%= order.status.capitalize %>
     <% if order.status == "ordered" %>
       <%= button_to "Mark as paid" %>
     <% elsif order.status == "paid" %>

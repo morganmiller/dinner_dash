@@ -59,7 +59,7 @@ feature 'Logged in admin' do
     click_on "Order Dashboard"
   end
 
-  xscenario 'can view specific order details' do
+  scenario 'can view specific order details' do
     click_on "Order created on 06/09/15"
 
     expect(page).to have_content "Order date/time: 2015-06-09 19:35:07"
@@ -67,8 +67,8 @@ feature 'Logged in admin' do
     expect(page).to have_content "Purchaser email: fml@database.sucks"
 
     expect(page).to have_content "Item: Eat Cheese and Die"
-    expect(page).to have_content "Quantity: 1"
     expect(page).to have_content "Price: $50.65"
+    expect(page).to have_content "Quantity: 1"
     expect(page).to have_content "Item subtotal: $50.65"
 
     expect(page).to have_content "Order total: $50.65"
