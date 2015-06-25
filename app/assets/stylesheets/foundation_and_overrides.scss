@@ -1498,7 +1498,9 @@ $header-font-family: $font-family-sans-serif;
 }
 
 body {
-  background-color: #000;
+  background-image: image-url("main-background.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
 }
 
@@ -1533,6 +1535,21 @@ h1 {
   }
 }
 
+.main-title-caption {
+  zoom: 1;
+  /*width: 40%;*/
+  padding: 1.5%;
+  position: absolute;
+  left: 15%;
+//  margin-left: auto;
+//  margin-right: auto;
+  width: 70%;
+  bottom: 46%;
+  opacity:0.6;
+  font-size: 70px;
+  line-height: 60px;
+}
+
 ul {
   list-style-type: none;
 }
@@ -1544,7 +1561,6 @@ li.right {
   float: right;
 }
 
-
 * {
   font-family: 'Special Elite', cursive;
 }
@@ -1553,4 +1569,18 @@ li.right {
   margin-bottom: 20%;
 //  padding: 20px
 }
+
+.blank-separator {
+  height: 10px;
+  margin:20px 0;
+  display: block;
+}
+
+.large-12.large-centered.columns {
+  width: 250px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }
