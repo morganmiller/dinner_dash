@@ -1,8 +1,9 @@
 <h1>Create New Category</h1>
 
 <%= form_for [:admin, @category] do |f| %>
-  <%= f.label :name %><br>
-  <%= f.text_area :name %><br>
-
-  <%= f.submit "Create category" %><br>
+  <div class="large-12 large-centered columns">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+  </div>
+  <p class= "center"><%= f.submit "Create category", class:"tiny button radius" %></p>
 <% end %>

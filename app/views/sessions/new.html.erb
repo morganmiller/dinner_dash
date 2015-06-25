@@ -1,7 +1,5 @@
-<h1>Login</h1>
-
 <div class="row">
-  <!--<form>-->
+  <h1>Login</h1>
   <%= form_for(:session, url: "/login") do |f| %>
 
       <div class="large-12 large-centered columns">
@@ -9,14 +7,13 @@
   <%= f.text_field :email, :placeholder => "email"  %>
       </div>
 
-      <div class="large-12 columns">
+      <div class="large-12 large-centered columns">
   <%= f.label :password %>
   <%= f.password_field :password, :placeholder => "password" %>
       </div>
 
-  <%= f.submit "Login" %>
+  <p class= "center"><%= f.submit "Login", class:"tiny button radius" %></p>
 <% end %>
-  <!--</form>-->
 </div>
 
 <p>Not a registered user? <%= link_to "Create an account!", new_user_path %></p>
