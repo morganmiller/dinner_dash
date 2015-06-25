@@ -22,7 +22,7 @@
   
   <ul class="admin-orders" id="mix-wrapper">
     <% @orders.each do |order| %>
-      <br><li class="mix-target <%= order.status %>"><%= link_to "Order created on #{order.formatted_date}", admin_order_path(order) %><br>
+      <br><li class="mix-target <%= order.status %>"><%= link_to "Order created on #{order.formatted_date}", admin_torder_path(order) %><br>
       Status: <%= order.status.capitalize %>
       <% if order.status == "ordered" %>
         <%= button_to "Mark as paid", admin_order_path(order, status: "paid"), method: :patch, class: "tiny button radius" %>
