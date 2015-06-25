@@ -1537,12 +1537,9 @@ h1 {
 
 .main-title-caption {
   zoom: 1;
-  /*width: 40%;*/
   padding: 1.5%;
   position: absolute;
   left: 15%;
-//  margin-left: auto;
-//  margin-right: auto;
   width: 70%;
   bottom: 46%;
   opacity:0.6;
@@ -1555,42 +1552,44 @@ ul {
 }
 
 .admin-orders {
-  display:inline-block;
-
-li.right {
-  float: right;
-}
-
-* {
-  font-family: 'Special Elite', cursive;
-}
-
-#individual-item {
-  margin-bottom: 20%;
-//  padding: 20px
-}
-
-.blank-separator {
-  height: 10px;
-  margin:20px 0;
-  display: block;
-}
-
-.large-12.large-centered.columns {
-  width: 250px;
-}
-
-.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#category-checks {
   display: inline-block;
 }
 
-#category-items li, ul {
-  float: left;
-  list-style-type: none;
-  margin-left: 20px;
-}
+  li.right {
+    float: right;
+  }
+
+  * {
+    font-family: 'Special Elite', cursive;
+  }
+
+  #individual-item {
+    margin-bottom: 20%;
+    //  padding: 20px
+  }
+
+  .blank-separator {
+    height: 10px;
+    margin: 20px 0;
+    display: block;
+  }
+
+  .large-12.large-centered.columns {
+    width: 250px;
+  }
+
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #category-checks {
+    display: inline-block;
+  }
+
+  #category-items li, ul {
+    float: left;
+    list-style-type: none;
+    margin-left: 20px;
+  }
+

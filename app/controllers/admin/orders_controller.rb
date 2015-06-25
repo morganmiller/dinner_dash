@@ -13,4 +13,12 @@ class Admin::OrdersController < Admin::BaseController
     @user = User.find(@order.user_id)
     @order_items = @order.order_items
   end
+  
+  def update
+    order = Order.find(params[:id])
+    order.status = params[:status]
+    order.save!
+    flash[:notice] = "Your order has been updated!"
+    redirect_to admin_orders_path
+  end
 end
