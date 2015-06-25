@@ -49,7 +49,7 @@ class Seed
     puts "Orders for the following users: #{Order.all.map(&:user_id).join(", ")} created."
   end
 
-  private
+private
 
   def users
     [
@@ -105,26 +105,27 @@ class Seed
   
   def items
     [
-      ["Eat Cheese & Die", "The ooziest grilled cheese", 50.00, [monster, other], "http://ak-hdl.buzzfed.com/static/enhanced/web03/2012/8/13/15/enhanced-buzz-24632-1344884422-14.jpg"],
-      ["Welcome to Dead House",  "That ain't gingerbread, it's Shaun White.", 50.00, [ghost], "http://cache.boston.com/bonzai-fba/Original_Photo/2010/10/29/house2__1288371510_5663.jpg"],
-      ["Monster Blood Martini", "A sticky treat", 50.00, [monster, vampire], "http://i.imgur.com/GOyRZxD.jpg"],
-      ["Let's Get Invisible", "It has 0 calories.", 50.00, [ghost], "http://i.imgur.com/yHAHhLt.png"],
-      ["The Ghost Next Door", "Like eating Patrick Swayze", 50.00, [ghost], "http://i.imgur.com/jSHOJVJ.jpg"],
-      ["The Haunted Mask", "The food speaks for itself.", 50.00, [ghost, werewolf], "http://i.imgur.com/M11NNID.jpg"],
-      ["Deep Trouble", "Spooky Spooky Spooky", 50.00, [other], "http://i.imgur.com/0MgrOZC.jpg"],
-      ["Go Eat Worms", "Creepy crawly cupcakes", 50.00, [werewolf, other], "http://i.imgur.com/wsWCWsh.jpg"],
-      ["Ghost on the Beach", "It's better than you-know-what.", 50.00, [ghost], "http://i.imgur.com/5fHgoXX.jpg"],
-      ["Attack of the Mutant", "Mutant goo corn", 50.00, [werewolf, monster], "http://i.imgur.com/r6968CH.jpg"],
-      ["The Barking Ghost", "It's woof-tastic.", 50.00, [werewolf, ghost], "http://i.imgur.com/SWV1TXk.jpg"],
-      ["Tick Tock You're Dead", "Finish it before your time runs out.", 50.00, [other], "http://i.imgur.com/RNSRutH.png"],
-      ["Bad Hare Day", "Hare today, gone tomorrow...", 50.00, [werewolf], "http://i.imgur.com/2i6uSKB.jpg"],
-      ["The Coo Coo Clock of Doom", "It's not even food, it's just doom.", 50.00, [vampire, other], "http://i.imgur.com/67u6PNA.png"],
-      ["My Hairiest Adventure", "Spooky Spooky Spooky", 50.00, [werewolf], "http://i.imgur.com/GOyRZxD.jpg"],
-      ["The Return of the Mummy", "Spooky Spooky Spooky", 50.00, [other], "http://i.imgur.com/GOyRZxD.jpg"],
-      ["Why I am Afraid of Bees", "Spooky Spooky Spooky", 50.00, [other], "http://i.imgur.com/GOyRZxD.jpg"],
-      ["You Can't Scare Me", "Spooky Spooky Spooky", 50.00, [vampire, ghost], "http://i.imgur.com/GOyRZxD.jpg"],
-      ["The Girl Who Cried Monster", "Spooky Spooky Spooky", 50.00, [monster], "http://i.imgur.com/GOyRZxD.jpg"],
-      ["Stay Out Of the Basement", "Spooky Spooky Spooky", 50.00, [ghost], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["Eat Cheese & Die", "The ooziest grilled cheese", 51.99, [monster, other], "http://ak-hdl.buzzfed.com/static/enhanced/web03/2012/8/13/15/enhanced-buzz-24632-1344884422-14.jpg"],
+      ["Welcome to Dead House",  "That ain't gingerbread.", 23.26, [ghost], "http://cache.boston.com/bonzai-fba/Original_Photo/2010/10/29/house2__1288371510_5663.jpg"],
+      ["Monster Blood Martini", "A sticky treat", 28.84, [monster, vampire], "http://i.imgur.com/GOyRZxD.jpg"],
+      ["Let's Get Invisible", "It has 0 calories.", 93.19, [ghost], "http://i.imgur.com/yHAHhLt.png"],
+      ["The Ghost Next Door", "Like eating Patrick Swayze", 63.38, [ghost], "http://i.imgur.com/jSHOJVJ.jpg"],
+      ["The Haunted Mask", "The food speaks for itself.", 10.76, [ghost, werewolf], "http://i.imgur.com/M11NNID.jpg"],
+      ["Deep Trouble", "Deep fried", 63.94, [other], "http://i.imgur.com/0MgrOZC.jpg"],
+      ["Go Eat Worms", "Creepy crawly cupcakes", 38.23, [werewolf, other], "http://i.imgur.com/wsWCWsh.jpg"],
+      ["Ghost on the Beach", "It's better than you-know-what.", 14.91, [ghost], "http://i.imgur.com/5fHgoXX.jpg"],
+      ["Attack of the Mutant", "Mutant goo corn", 43.67, [werewolf, monster], "http://i.imgur.com/r6968CH.jpg"],
+      ["The Barking Ghost", "It's woof-tastic.", 87.24, [werewolf, ghost], "http://i.imgur.com/SWV1TXk.jpg"],
+      ["Tick Tock You're Dead", "Finish it before your time runs out.", 44.11, [other], "http://i.imgur.com/RNSRutH.png"],
+      ["Bad Hare Day", "Hare today, gone tomorrow...", 25.71, [werewolf], "http://i.imgur.com/2i6uSKB.jpg"],
+      ["The Coo Coo Clock of Doom", "It's not even food, it's just doom.", 83.12, [vampire, other], "http://i.imgur.com/67u6PNA.png"],
+      ["My Hairiest Adventure", "Like a fur coat for your mouth", 67.71, [werewolf], "http://s3-media4.fl.yelpcdn.com/bphoto/69wdlcHxiNwzYOOA9rN_vA/o.jpg"],
+      ["The Return of the Mummy", "You'll be saying, 'ymmmummy'", 98.99, [other], "http://eatrightchicago.org/wp-content/uploads/2013/02/Donut-Burger-636.jpg"],
+      ["Why I am Afraid of Bees", "Let's bee serious", 32.12, [other], "http://i.imgur.com/VVu0D9u.jpg"],
+      ["You Can't Scare Me", "But it will give you hiccups", 83.87, [vampire, ghost], "http://cdn.thatsnerdalicious.com/wp-content/uploads/2010/12/meat-lovers-banana-split-9294-1291275521-28.jpg?a0509d"],
+      ["The Girl Who Cried Monster", "It's wolf", 12.43, [monster], "http://www.greatist.com/sites/default/files/wp-content/uploads/2011/06/ice-cream-ramen-1.jpg"],
+      ["Stay Out Of the Basement", "Sadly, we live in one", 60.76, [ghost], "http://blog.eat24hours.com/wp-content/uploads/2014/06/palak.jpg"],
+      ["The Horror of Camp JellyJam", "Better than whore of jellyjam", 54.44, [ghost], "http://www.chowstatic.com/assets/recipe_photos/30283_hurricane_jelly_shot.jpg"],
     ]
   end
   
@@ -145,6 +146,7 @@ class Seed
       { "5" => 1, "15" => 5 }
     ]
   end
+  
 end
 
 Seed.start
