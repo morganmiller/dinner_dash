@@ -1,0 +1,15 @@
+<h1>Order Detail</h1>
+
+Order date/time: <%= @order.created_at %>
+Purchaser name: <%= @user.full_name %>
+Purchaser email: <%= @user.email %>
+
+<% @order_items.each do |order_item| %>
+  Item: <%= link_to order_item.item.title, admin_item_path(order_item.item) %>
+  Price: <%= number_to_currency order_item.item.price %>
+  Quantity: <%= order_item.quantity %>
+  Item subtotal: <%= number_to_currency order_item.line_item_price %>
+<% end %>
+
+Order total: <%= number_to_currency @order.total_price %>
+Order status: <%= @order.status %>

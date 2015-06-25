@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'add to cart' do
   let(:category) { Category.create!(name: "Gross")}
-  
+
   before(:each) do
     @item = Item.create(title: "Eat Cheese and Die",
                 description: "The spookiest grilled cheese.",

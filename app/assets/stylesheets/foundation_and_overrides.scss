@@ -1554,10 +1554,12 @@ ul {
   list-style-type: none;
 }
 
+.admin-orders {
+  display:inline-block;
+
 li.right {
   float: right;
 }
-
 
 * {
   font-family: 'Special Elite', cursive;
