@@ -52,7 +52,7 @@ feature 'Logged in admin' do
                             created_at: "2015-04-22 19:35:07",
                             updated_at: "2015-04-23 10:22:17",
                             status: "cancelled")
-
+                            byebug
     allow_any_instance_of(ApplicationController).to receive(:current_user) { @admin }
 
     visit root_path
