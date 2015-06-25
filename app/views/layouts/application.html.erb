@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+  <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <header>
+<header>
 
-    <%= render 'layouts/nav' %>
-  </header>
+  <%= render 'layouts/nav' %>
+</header>
 
-  <body>
+<body>
+<div id="bg">
+  <img src="<%= asset_path( 'dark_360.jpg' ) %>" alt="background">
+</div>
 
-  <main role="main">
-    <%= flash[:notice] %>
-    <%= flash[:errors] %>
-    <%= yield %>
-  </main>
-  
-  </body>
+<main role="main">
+  <%= flash[:notice] %>
+  <%= flash[:errors] %>
+</main>
+<%= yield %>
+
+</body>
 </html>

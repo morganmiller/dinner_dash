@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
       self.display_name = full_name
     end
   end
+  
+  def most_recent_order
+    orders.first
+  end
 end

@@ -13,7 +13,7 @@ class CartItemsController < ApplicationController
     redirect_to cart_path
   end
 
-  private
+private
   def set_item
     @item = Item.find(params[:item_id])
   end
