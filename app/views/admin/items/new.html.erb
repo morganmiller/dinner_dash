@@ -1,31 +1,40 @@
-<h1>Create New Item</h1>
-
-<%= form_for [:admin, @item], html: {multipart: true} do |f| %>
-  <%= f.label :title %><br>
-  <%= f.text_area :title %><br>
-
-  <%= f.label :description %><br>
-  <%= f.text_area :description %><br>
-
-  <%= f.label :price %><br>
-  <%= f.text_area :price %><br>
-
-  Categories
-  <div id="category-items">
-    <% @categories.each do |category| %>
-      <li>
-        <%= label_tag "categories", category.name %>
-        <%= check_box_tag "item[category_ids][]", category.id %>
-      </li>
-    <% end %>
-  </div>
-
-  <% if @item.image.exists? %>
-    <%= image_tag @item.image.url %><br/>
+<div class="row">
+  <h1>Create New Item</h1>
+  
+  <%= form_for [:admin, @item], html: {multipart: true} do |f| %>
+    <div class="large-12 large-centered columns">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %><br>
+    </div>
+  
+    <div class="large-12 large-centered columns">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %><br>
+    </div>
+  
+    <div class="large-12 large-centered columns">
+      <%= f.label :price %><br>
+      <%= f.text_field :price %><br>
+    </div>
+  
+    <div class="large-12 large-centered columns">
+      Categories
+      <div id="category-items">
+        <% @categories.each do |category| %>
+          <li>
+            <%= label_tag "categories", category.name %>
+            <%= check_box_tag "item[category_ids][]", category.id %>
+          </li>
+        <% end %>
+      </div>
+    </div>
+    
+    <br><br><br>
+    <div class="large-12 large-centered columns">
+      <%= f.label :image, "Attach an Image" %>
+      <%= f.file_field :image %>
+    </div>
+    
+    <p class= "center"><%= f.submit "Create item", class:"tiny button radius" %></p>
   <% end %>
-
-  <%= f.label :image, "Attach an Image" %>
-  <%= f.file_field :image %>
-
-  <%= f.submit "Create item" %><br>
-<% end %>
+</div>
